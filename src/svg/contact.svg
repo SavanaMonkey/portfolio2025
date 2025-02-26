@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="62" viewBox="0 0 56 62">
+  <g id="contact" transform="translate(0 0.299)">
+    <path id="merge" d="M28,43.256H56V62Zm-28,0H28L0,62Zm0,0V0H56V43.256Z" transform="translate(0 -0.299)" fill="#ff005e"/>
+    <text id="Contact-2" data-name="Contact" transform="translate(7 26.701)" fill="#fff" font-size="11" font-family="Montserrat-SemiBold, Montserrat" font-weight="600" letter-spacing="-0.05em"><tspan x="0" y="0">Contact</tspan></text>
+  </g>
+</svg>

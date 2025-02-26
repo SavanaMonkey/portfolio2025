@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- 컴포넌트처럼 사용할 skillball 페이지 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>최종 수정 코드: 충돌 정확도 및 경계 보정 (수정본)</title>
+    <style>
+        @font-face {
+            font-family: "NeoDunggeunmo";
+            src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 배경 박스 */
+        #bg-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: filter 0.3s ease;
+        }
+
+        /* 볼 박스 */
+        #ball-box {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: "NeoDunggeunmo";
+            font-size: min(3.6vw, 18px);
+            letter-spacing: -0.25px;
+            word-break: keep-all;
+            text-align: center;
+        }
+
+        /* Matter.js 캔버스: pointer-events 비활성화 */
+        #ball-box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* .ball 요소: 투명하지만 이벤트 받음 */
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: auto;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: none;
+            cursor: pointer;
+        }
+
+        .ball.coding-skill,
+        .ball.other-skill {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .ball.design-skill {
+            color: #000;
+            border-color: #000;
+        }
+
+        .title-line {
+            width: 20px;
+            height: fit-content;
+            border-bottom: 2px solid;
+        }
+
+        /* 내부 콘텐츠 (초기에는 감춰짐) */
+        .ball .skill-name {
+            width: 100%;
+            height: auto;
+        }
+
+        .ball .inner-content {
+            width: calc(100vw - 32px);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 2s ease;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ball.expanded .inner-content {
+            max-height: 200vh;
+        }
+
+        #screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            z-index: 5000;
+            /* 공의 fixed z-index가 9999이므로 그 아래로 설정 */
+        }
+
+        /* ball 뒤에서 회전하는 배경 설정 */
+        .ball::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--ball-gradient);
+            transform: rotate(var(--gradient-angle));
+            animation: spin 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(var(--gradient-angle));
+            }
+
+            to {
+                transform: rotate(calc(var(--gradient-angle) + 360deg));
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <!-- color4Bg -->
+    <div id="bg-box" data-pixelate="true"></div>
+
+    <!-- 스킬볼 -->
+    <div id='screen'></div>
+    <div id="ball-box">
+        <!-- ✅ 개발 스킬 -->
+        <!-- (1) HTML/CSS -->
+        <div class="ball coding-skill"
+            style="--gradient-angle: 80deg; --ball-gradient: linear-gradient(80deg, rgba(255,0,94,1), rgba(255,0,94,0));">
+            <p class='skill-name'>HTML<br>
+                CSS</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    영진직업전문학교에서 진행한 프론트엔드 과정을
+                    수료하였으며, 이후 퍼블리셔로 취업하여
+                    실무 경험을 부단히 길러왔습니다.
+                </p>
+                <p class='skill-comment'>
+                    Use : VScode, 카페24
+                </p>
+            </div>
+        </div>
+        <!-- (2) JavaScript -->
+        <div class="ball coding-skill"
+            style="--gradient-angle: 120deg; --ball-gradient: linear-gradient(120deg, rgba(255,0,94,1), rgba(255,0,94,0));">
+            <p class='skill-name'>JavaScript</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    영진직업전문학교에서 진행한 프론트엔드 과정을
+                    수료하였으며, 웹 퍼블리싱 시 필요한 함수를
+                    직접 작성할 수 있습니다.
+                </p>
+                <p class='skill-comment'>
+                    Use : VScode, 카페24
+                </p>
+            </div>
+        </div>
+        <!-- (3) React -->
+        <div class="ball coding-skill"
+            style="--gradient-angle: 180deg; --ball-gradient: linear-gradient(180deg, rgba(255,0,94,1), rgba(255,0,94,0));">
+            <p class='skill-name'>React</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    SBS게임아카데미에서 진행한 레벨 디자이너 과정을
+                    이수하였으며, Blueprint를 이용해 게임 속
+                    동작을 구현하는 기초를 다졌습니다.
+                </p>
+                <p class='skill-comment'>Use : Unreal5</p>
+            </div>
+        </div>
+        <!-- (4) BluePrint -->
+        <div class="ball coding-skill"
+            style="--gradient-angle: 210deg; --ball-gradient: linear-gradient(210deg, rgba(255,0,94,1), rgba(255,0,94,0));">
+            <p class='skill-name'>BluePrint</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    영진직업전문학교에서 진행한 프론트엔드 과정을
+                    수료하였으며, React를 이용한 웹 퍼블리싱이
+                    가능하고 간단한 API를 연결할 수 있습니다.
+                </p>
+                <p class='skill-comment'>
+                    Use : VScode, 카페24
+                </p>
+            </div>
+        </div>
+
+        <!-- ✅ 디자인 스킬 -->
+        <!-- (1) UI/UX 디자인 -->
+        <div class="ball design-skill"
+            style="--gradient-angle: 45deg; --ball-gradient: linear-gradient(45deg, rgba(220,255,0,1), rgba(220,255,0,0));">
+            <p class='skill-name'>UI/UX<br>
+                디자인</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    UI/UX 툴을 이용하여 설득력 있고 유저 친화적인
+                    와이어 프레임 및 프로토타입을 제작할 수 있습니다.</p>
+                <p class='skill-comment'>Use : Adobe XD(80%), Figma(60%)</p>
+            </div>
+        </div>
+        <div class="ball design-skill"
+            style="--gradient-angle: 80deg; --ball-gradient: linear-gradient(80deg, rgba(220,255,0,1), rgba(220,255,0,0));">
+            <p class='skill-name'>프로모션<br>
+                디자인</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    SNS 컨텐츠, 상세페이지, 대표이미지 등
+                    각종 프로모션에 필요한 이미지를
+                    디자인 및 편집할 수 있습니다.</p>
+                <p class='skill-comment'></p>
+            </div>
+        </div>
+        <div class="ball design-skill"
+            style="--gradient-angle: 80deg; --ball-gradient: linear-gradient(80deg, rgba(220,255,0,1), rgba(220,255,0,0));">
+            <p class='skill-name'>이미지<br>
+                편집</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    상품 및 컨텐츠 소재를 직접 촬영하고
+                    누끼, 보정 등 편집 작업을 능숙히 할 수 있습니다.</p>
+                <p class='skill-comment'>Use : Adobe Photoshop(80%), etc…</p>
+            </div>
+        </div>
+        <div class="ball design-skill"
+            style="--gradient-angle: 80deg; --ball-gradient: linear-gradient(80deg, rgba(220,255,0,1), rgba(220,255,0,0));">
+            <p class='skill-name'>드로잉</p>
+            <div class="inner-content">
+                <div class='title-line'></div>
+                <p class='skill-summary'>
+                    어릴 때부터 고등학생 때까지 미술을 공부하여
+                    각종 일러스트, 스토리보드 등
+                    자유로운 드로잉이 가능합니다.</p>
+                <p class='skill-comment'>Use : Hand(90%), Digital(70%)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/AestheticFluidBg.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script>
+        /***********************************************************
+        * A) Color4Bg 배경 설정
+        ***********************************************************/
+        const bgBox = document.getElementById("bg-box");
+        const colorbg = new Color4Bg.AestheticFluidBg({
+            dom: "bg-box",
+            colors: ["#ffffff", "#f0f0f0", "#ebebeb", "#e8e8e8", "#d4d4d4", "#cfcfce"],
+            loop: true,
+        });
+        requestAnimationFrame(() => {
+            if (colorbg.rttProgram && colorbg.rttProgram.uniforms) {
+                colorbg.rttProgram.uniforms.u_rand_1.value = 0;
+                colorbg.rttProgram.uniforms.u_rand_2.value = 0;
+            }
+            colorbg.update("noise", 0);
+            if (colorbg.renderer && colorbg.scene && colorbg.camera) {
+                colorbg.renderer.render({ scene: colorbg.scene, camera: colorbg.camera });
+            }
+        });
+
+        /***********************************************************
+         * B) 픽셀화 필터: 마우스 오버/아웃 시
+         ***********************************************************/
+        const ballEls = document.querySelectorAll(".ball");
+        ballEls.forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                console.log("mouseenter on ballEl");
+                bgBox.style.filter = "url(#pixelate)";
+            });
+            el.addEventListener("mouseleave", (event) => {
+                if (event.relatedTarget && event.relatedTarget.classList.contains("ball"))
+                    return;
+                console.log("mouseleave on ballEl");
+                bgBox.style.filter = "none";
+            });
+        });
+
+        /***********************************************************
+         * C) Matter.js 초기화 및 설정
+         ***********************************************************/
+        const Engine = Matter.Engine,
+            Render = Matter.Render,
+            Runner = Matter.Runner,
+            World = Matter.World,
+            Bodies = Matter.Bodies,
+            Body = Matter.Body;
+        const engine = Engine.create();
+        const world = engine.world;
+        world.gravity.y = 0;
+        engine.positionIterations = 10;
+        engine.velocityIterations = 10;
+        engine.constraintIterations = 4;
+        const ballBox = document.getElementById("ball-box");
+        const boxW = ballBox.clientWidth;
+        const boxH = ballBox.clientHeight;
+        const render = Render.create({
+            element: ballBox,
+            engine: engine,
+            options: {
+                width: boxW,
+                height: boxH,
+                background: "transparent",
+                wireframes: false,
+                showAngleIndicator: false,
+                showVelocity: false,
+            },
+        });
+        Render.run(render);
+        const runner = Runner.create();
+        Runner.run(runner, engine);
+
+        /***********************************************************
+         * D) 사방 벽 설정: 탄성 유지
+         ***********************************************************/
+        const thick = 500;
+        const walls = [
+            Bodies.rectangle(boxW / 2, -thick / 2, boxW, thick, {
+                isStatic: true,
+                restitution: 1,
+                friction: 1,
+                frictionStatic: 0,
+            }),
+            Bodies.rectangle(boxW / 2, boxH + thick / 2, boxW, thick, {
+                isStatic: true,
+                restitution: 1,
+                friction: 1,
+                frictionStatic: 0,
+            }),
+            Bodies.rectangle(-thick / 2, boxH / 2, thick, boxH, {
+                isStatic: true,
+                restitution: 1,
+                friction: 1,
+                frictionStatic: 0,
+            }),
+            Bodies.rectangle(boxW + thick / 2, boxH / 2, thick, boxH, {
+                isStatic: true,
+                restitution: 1,
+                friction: 1,
+                frictionStatic: 0,
+            }),
+        ];
+        World.add(world, walls);
+
+        /***********************************************************
+         * E) Ball 생성: 탄성 및 충돌 정확도 강화
+         ***********************************************************/
+        let mode = "normal";
+        let hoveredBall = null;
+        const balls = [];
+        const previousRestitutions = new Map();
+        const previousFrictions = new Map();
+        ballEls.forEach((el, i) => {
+            const vwUnit = window.innerWidth / 100; // 1vw에 해당하는 픽셀 값
+            // 예: 최소 9vw, 최대 10vw 정도의 반지름을 랜덤으로 적용
+            const rawR = Math.floor(
+                Math.random() * (10 * vwUnit - 9 * vwUnit) + 9 * vwUnit
+            );
+            const maxR = 120; // 최대 반지름 픽셀 값 (원하는 값으로 조정)
+            const r = Math.min(rawR, maxR);
+            const x = Math.random() * (boxW - r * 2) + r;
+            const y = Math.random() * (boxH - r * 2) + r;
+            const circleBody = Bodies.circle(x, y, r, {
+                restitution: 0.9,
+                friction: 0,
+                frictionAir: 0.0,
+                frictionStatic: 0,
+                slop: 0,
+                render: { fillStyle: "rgba(0, 0, 0, 0)", strokeStyle: "rgba(0, 0, 0, 0)" },
+            });
+            const vx = (Math.random() - 0.5) * 6;
+            const vy = (Math.random() - 0.5) * 6;
+            Body.setVelocity(circleBody, { x: vx, y: vy });
+            circleBody.initialX = x;
+            circleBody.initialY = y;
+            World.add(world, circleBody);
+            balls.push(circleBody);
+        });
+
+        /***********************************************************
+         * F) 클릭 이벤트: hover-fall 모드 전환 및 확대/중앙 배치 (통합)
+         ***********************************************************/
+        ballEls.forEach((el, idx) => {
+            el.addEventListener("click", (event) => {
+                if (mode !== "normal") return;
+                mode = "hover-fall";
+                hoveredBall = balls[idx];
+                // 클릭한 공을 정지 및 중앙으로 이동
+                Body.setStatic(hoveredBall, true);
+                const centerX = ballBox.clientWidth / 2;
+                const centerY = ballBox.clientHeight / 2;
+                Body.setPosition(hoveredBall, { x: centerX, y: centerY });
+                // ballBox 기준의 vw 단위 (예: 110vw)로 크기 변경
+                const targetVw = 110;
+                const targetPx = (ballBox.clientWidth * targetVw) / 100;
+                el.style.transformOrigin = "center center";
+                el.style.transition = "all 0.5s ease";
+                el.style.width = `${targetPx}px`;
+                el.style.height = `${targetPx}px`;
+                el.style.transform = `translate(${centerX - targetPx / 2}px, ${centerY - targetPx / 2
+                    }px)`;
+                // position fixed와 z-index 적용
+                el.style.position = "fixed";
+                el.style.zIndex = "9999";
+                // 내부 콘텐츠 보이기 및 확장 클래스 추가
+                const contentEl = el.querySelector(".inner-content");
+                if (contentEl) {
+                    contentEl.style.display = "flex";
+                }
+                el.classList.add("expanded");
+                // 다른 공들의 물리적 특성 조정
+                balls.forEach((b) => {
+                    if (b !== hoveredBall) {
+                        previousRestitutions.set(b, b.restitution);
+                        previousFrictions.set(b, b.friction);
+                        Body.setStatic(b, false);
+                        b.restitution = 0.4;
+                        b.friction = 1;
+                    }
+                });
+                balls.forEach((b) => {
+                    b.preFallX = b.position.x;
+                    b.preFallY = b.position.y;
+                });
+                world.gravity.y = 3;
+                // 추가: 확대 시 검은 불투명 screen 표시
+                document.getElementById("screen").style.display = "block";
+                event.stopPropagation();
+            });
+        });
+
+        /***********************************************************
+         * G) normal 모드 복귀: 클릭 시 (공 외부 클릭)
+         ***********************************************************/
+        document.body.addEventListener("click", (event) => {
+            if (mode === "hover-fall") {
+                // 기존 복귀 작업 수행
+                // (복귀 처리 코드: 공의 물리 값 복원, DOM 스타일 초기화 등)
+                if (hoveredBall) {
+                    Body.setStatic(hoveredBall, false);
+                    const vx = (Math.random() - 0.5) * 6;
+                    const vy = (Math.random() - 0.5) * 6;
+                    Body.setVelocity(hoveredBall, { x: vx, y: vy });
+                    const index = balls.indexOf(hoveredBall);
+                    const el = ballEls[index];
+                    el.style.zIndex = "";
+                    el.style.transform = "";
+                    el.style.transition = "";
+                    const contentEl = el.querySelector(".inner-content");
+                    if (contentEl) {
+                        contentEl.style.display = "none";
+                    }
+                }
+                world.gravity.y = 0;
+                balls.forEach((b) => {
+                    b.restitution = previousRestitutions.get(b) || b.restitution;
+                    b.friction = previousFrictions.get(b) || b.friction;
+                    if (b !== hoveredBall) {
+                        const targetY = b.preFallY !== undefined ? b.preFallY : b.position.y;
+                        gsap
+                            .timeline()
+                            .to(b.position, {
+                                duration: 1.0,
+                                y: targetY,
+                                ease: "expo.out",
+                                onUpdate: () => {
+                                    Body.setPosition(b, { x: b.position.x, y: b.position.y });
+                                },
+                            })
+                            .eventCallback("onComplete", () => {
+                                const vx = (Math.random() - 0.5) * 6;
+                                const vy = (Math.random() - 0.5) * 6;
+                                Body.setVelocity(b, { x: vx, y: vy });
+                            });
+                    }
+                });
+                hoveredBall = null;
+                mode = "normal";
+                // 추가: 복귀 시 검은 불투명 screen 숨김 처리
+                document.getElementById("screen").style.display = "none";
+            }
+        });
+
+        /***********************************************************
+         * H) DOM 위치 및 크기 동기화 (경계 보정 포함)
+         ***********************************************************/
+        function syncDomPositions() {
+            for (let i = 0; i < balls.length; i++) {
+                const b = balls[i];
+                if (mode === "hover-fall" && b === hoveredBall) continue;
+                const el = ballEls[i];
+                const r = b.circleRadius || 0;
+                let xPos = b.position.x - r;
+                let yPos = b.position.y - r;
+                if (xPos < 0) xPos = 0;
+                if (yPos < 0) yPos = 0;
+                if (xPos + 2 * r > boxW) xPos = boxW - 2 * r;
+                if (yPos + 2 * r > boxH) yPos = boxH - 2 * r;
+                el.style.width = `${2 * r}px`;
+                el.style.height = `${2 * r}px`;
+                el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            }
+        }
+
+        /***********************************************************
+         * I) 공끼리 경계 강화
+         ***********************************************************/
+        function enforceSeparation() {
+            for (let i = 0; i < balls.length; i++) {
+                for (let j = i + 1; j < balls.length; j++) {
+                    const ballA = balls[i];
+                    const ballB = balls[j];
+                    if (ballA.isStatic && !ballB.isStatic) {
+                        handleStaticCollision(ballA, ballB);
+                        continue;
+                    } else if (!ballA.isStatic && ballB.isStatic) {
+                        handleStaticCollision(ballB, ballA);
+                        continue;
+                    } else if (ballA.isStatic && ballB.isStatic) {
+                        continue;
+                    }
+                    const rA = ballA.circleRadius || 0;
+                    const rB = ballB.circleRadius || 0;
+                    const dx = ballB.position.x - ballA.position.x;
+                    const dy = ballB.position.y - ballA.position.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const minDistance = rA + rB;
+                    if (distance < minDistance) {
+                        const overlap = minDistance - distance;
+                        const nx = dx / distance;
+                        const ny = dy / distance;
+                        Matter.Body.setPosition(ballA, {
+                            x: ballA.position.x - (nx * overlap) / 2,
+                            y: ballA.position.y - (ny * overlap) / 2,
+                        });
+                        Matter.Body.setPosition(ballB, {
+                            x: ballB.position.x + (nx * overlap) / 2,
+                            y: ballB.position.y + (ny * overlap) / 2,
+                        });
+                        const relativeVelocity =
+                            (ballB.velocity.x - ballA.velocity.x) * nx +
+                            (ballB.velocity.y - ballA.velocity.y) * ny;
+                        if (relativeVelocity < 0) {
+                            const impulse = (2 * relativeVelocity) / (ballA.mass + ballB.mass);
+                            Matter.Body.setVelocity(ballA, {
+                                x: ballA.velocity.x + impulse * ballB.mass * nx,
+                                y: ballA.velocity.y + impulse * ballB.mass * ny,
+                            });
+                            Matter.Body.setVelocity(ballB, {
+                                x: ballB.velocity.x - impulse * ballA.mass * nx,
+                                y: ballB.velocity.y - impulse * ballA.mass * ny,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        function handleStaticCollision(staticBall, dynamicBall) {
+            const rStatic = staticBall.circleRadius || 0;
+            const rDynamic = dynamicBall.circleRadius || 0;
+            const dx = dynamicBall.position.x - staticBall.position.x;
+            const dy = dynamicBall.position.y - staticBall.position.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const minDistance = rStatic + rDynamic;
+            if (distance < minDistance) {
+                const overlap = minDistance - distance;
+                const nx = dx / distance;
+                const ny = dy / distance;
+                Matter.Body.setPosition(dynamicBall, {
+                    x: dynamicBall.position.x + nx * overlap,
+                    y: dynamicBall.position.y + ny * overlap,
+                });
+                const relativeVelocity =
+                    dynamicBall.velocity.x * nx + dynamicBall.velocity.y * ny;
+                if (relativeVelocity < 0) {
+                    const impulse = (2 * relativeVelocity) / dynamicBall.mass;
+                    Matter.Body.setVelocity(dynamicBall, {
+                        x: dynamicBall.velocity.x - impulse * dynamicBall.mass * nx,
+                        y: dynamicBall.velocity.y - impulse * dynamicBall.mass * ny,
+                    });
+                }
+            }
+        }
+
+        /***********************************************************
+         * J) 엔진 업데이트 후 경계 및 충돌 처리
+         ***********************************************************/
+        Matter.Events.on(engine, "afterUpdate", () => {
+            syncDomPositions();
+            enforceSeparation();
+            for (const ball of balls) {
+                if (
+                    ball.position.x < 0 ||
+                    ball.position.x > boxW ||
+                    ball.position.y < 0 ||
+                    ball.position.y > boxH
+                ) {
+                    const r = ball.circleRadius;
+                    let newX = Math.min(Math.max(ball.position.x, r), boxW - r);
+                    let newY = Math.min(Math.max(ball.position.y, r), boxH - r);
+                    Matter.Body.setPosition(ball, { x: newX, y: newY });
+                    Matter.Body.setVelocity(ball, { x: 0, y: 0 });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

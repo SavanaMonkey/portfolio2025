@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025년 portfolio</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/aqp2ybk.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 📱 우선은 mobile 기준 -->
+    <div id='side-menu-wrapper' class='side-menu display-none'>
+        <div id='side-menu-close-wrapper'>
+            <div id='side-menu-close' title="사이드 닫기">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <g id="그룹_115" data-name="그룹 115" transform="translate(-16 -17)">
+                        <rect id="사각형_12" data-name="사각형 12" width="28" height="28" rx="2"
+                            transform="translate(16 17)" />
+                        <g id="그룹_120" data-name="그룹 120" transform="translate(-14.489)">
+                            <path id="패스_8" data-name="패스 8" d="M49.977,26,39.489,36.489" fill="none" stroke="#fff"
+                                stroke-linecap="round" stroke-width="1" />
+                            <path id="패스_9" data-name="패스 9" d="M39.489,26,49.977,36.489" fill="none" stroke="#fff"
+                                stroke-linecap="round" stroke-width="1" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div id='side-menu-content' class='hidden'>
+            <div id='side-menu-profilePic'></div>
+            <div id='side-menu-introduce'>
+                <p id='side-menu-title'><b>G</b>ood <b>D</b>esigner <b>N</b>ext <b>P</b>ublisher</p>
+                <div id='section-line'></div>
+                <div id='side-menu-summary'>
+                    <p>안녕하세요.
+                        <br><br>
+                        남다른 예리함과 디테일을 겸비한<br>
+                        완벽주의 풀스택 지망생<br>
+                        <b>김수연</b> 입니다.<br>
+                        <br>
+                        사용자의 뇌리에 확실히 각인시킬<br>
+                        유저 친화적 기획 혹은 디자인이<br>
+                        필요하시다면 제 이름 세 글자를<br>
+                        꼭 기억해 주세요.<br>
+                        <br>
+                        자세한 내용은
+                    </p>
+                </div>
+            </div>
+            <a id='side-menu-bt' href='./resume.html' title="이력서 페이지로 이동">
+                <p><b>이력서</b> 보러가기</p>
+            </a>
+        </div>
+    </div>
+    <div id='mobile'>
+        <!-- 📍 header -->
+        <header>
+            <div id='header-info' class='blur flex-row-between'>
+                <div id='side-menu-open' title="사이드 열기">
+                    <svg width="28" height="28" viewBox="0 0 28 28">
+                        <!-- 퍼지는 원 -->
+                        <circle class="ripple" cx="14" cy="14" r="14" fill="rgba(255, 255, 255, 0.5)"></circle>
+                        <!-- 햄버거 아이콘 -->
+                        <g id="hamburger" data-name="그룹 112" transform="translate(9 10)">
+                            <rect id="icon-background" data-name="사각형 84" width="28" height="28"
+                                transform="translate(-9 -10)" fill="rgba(255,255,255,0)" />
+                            <line id="line-t" x2="10" transform="translate(0)" fill="none" stroke="#fff"
+                                stroke-linecap="round" stroke-width="1" />
+                            <line id="line-m" x2="10" transform="translate(0 4)" fill="none" stroke="#fff"
+                                stroke-linecap="round" stroke-width="1" />
+                            <line id="line-b" x2="10" transform="translate(0 8)" fill="none" stroke="#fff"
+                                stroke-linecap="round" stroke-width="1" />
+                        </g>
+                    </svg>
+                </div>
+                <div id='title'>sy._.kim<span class='op5'>@</span>kakao<span class='op5'>.</span>com</div>
+                <div id='state' class='flex-row-between'>
+                    <div id='state-ball'></div>
+                    <span>구직중</span>
+                </div>
+            </div>
+            <!-- 프로모션 바 -->
+            <div id='event-bar' class='flex-row-center'>합류하기 좋은 시간이
+                <div id='event-time' class='countdown t-yellow'>
+                    <span class="num hours1">0</span><span class="num hours2">0</span>
+                    <span class='colon'>:</span>
+                    <span class="num minutes1">0</span><span class="num minutes2">0</span>
+                    <span class='colon'>:</span>
+                    <span class="num seconds1">0</span><span class="num seconds2">0</span>
+                </div> 남았어요!
+            </div>
+        </header>
+        <!-- 📍 section01 - 자기PR -->
+        <section id="self-pr">
+            <!--말풍선-->
+            <div id="pr-bubble-wrapper">
+                <div class="pr-bubble">
+                    <p>잡학다식을 백분 활용한 창의적 <b>아이디어</b>와 논리적인 <b>기획</b></p>
+                    <div class="bubble-arrow"></div>
+                </div>
+                <div class="pr-bubble">
+                    <p>철저하게 유저 입장에서 생각하는 <b>UI/UX 디자인</b></p>
+                    <div class="bubble-arrow"></div>
+                </div>
+                <div class="pr-bubble">
+                    <p>철두철미한 <b>설계</b>는 기본, 그대로 구현하는 꼼꼼한 <b>퍼블리싱</b></p>
+                    <div class="bubble-arrow"></div>
+                </div>
+            </div>
+            <!--말풍선 End-->
+            <!--캐릭터 일러스트-->
+            <div id="pr-chara">
+                <!--캐릭터 일러스트 - 배경-->
+                <div id="pr-chara-bg-wrapper">
+                    <div id="pr-chara-fillter"></div>
+                    <div id="pr-chara-bg">
+                        <div id='pr-chara-canvas-wrapper' data-pixelate="true">
+                        </div>
+                    </div>
+                </div>
+                <!--캐릭터 일러스트 - 이미지-->
+                <div id="pr-chara-img-wrapper">
+                    <img src="./src/img/chara-selfPR.png">
+                </div>
+                <!--캐릭터 일러스트 - 윈도우 그래픽-->
+                <div id="pr-chara-window-wrapper">
+                    <div class="pr-window">
+                        <div class="pr-window-fornt">
+                            <div class="pr-window-x">×</div>Sooyeon Kim
+                        </div>
+                    </div>
+                    <div class="pr-window">
+                        <div class="pr-window-fornt">
+                            <div class="pr-window-x">×</div>Web Publisher
+                        </div>
+                    </div>
+                    <div class="pr-window">
+                        <div class="pr-window-fornt">
+                            <div class="pr-window-x">×</div>Junior(2years)
+                        </div>
+                    </div>
+                </div>
+                <!--캐릭터 일러스트 - 강조 말풍선-->
+                <div id="pr-chara-bubble-wrapper">
+                    <div id='pr-chara-bubble'>
+                        <div id="pr-chara-bubble-text">오직, <span class="t-pink">지금</span> 뿐<span class="pink">!</span>
+                        </div>
+                        <div id="pr-chara-bubble-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            <!--캐릭터 일러스트 End-->
+            <!--카운트다운-->
+            <div id='pr-countdown-wrapper'>
+                <div id='pr-countdown-notice-wrapper'>
+                    <p id='pr-countdown-notice-slogan'>자·타·공·인 자세가 된 인재</p>
+                    <p id='pr-countdown-notice-sub''><span class=' t-yellow'>김수연</span>을 <span
+                            class='t-yellow'>영입</span>할
+                        수 있는</p>
+                    <p id='pr-countdown-notice-main'>절호의 <span class='t-yellow'>기회</span></p>
+                </div>
+                <div id='pr-countdown-timer-wrapper' class='timer'>
+                    <span class="num hours1">0</span><span class="num hours2">0</span>
+                    <span class='colon'>:</span>
+                    <span class="num minutes1">0</span><span class="num minutes2">0</span>
+                    <span class='colon'>:</span>
+                    <span class="num seconds1">0</span><span class="num seconds2">0</span>
+                </div>
+                <div id='pr-countdown-button-wrapper' class='button-wrapper'>
+                    <a id='pr-countdown-button' class='button' href='./resume.html' title='이력서 페이지로 이동'>지금 바로
+                        팀에&nbsp;<span class='t-yellow'>합류</span>시키기⚡</a>
+                    <div id='pr-countdown-button-notice'>버튼을 누르면 <span class='t-m'>이력서 페이지</span>로 이동합니다</div>
+                </div>
+            </div>
+            <!--카운트다운 End-->
+        </section>
+        <!-- 📍 section02 - 스킬볼 -->
+        <section id='skillball'>
+            <!-- 스킬볼 - 잠시만요 이미지 -->
+            <img id='skillball-img-wait' src='./src/img/wait.png'>
+            <!--스킬볼 - 강조 말풍선-->
+            <div id="skillball-bubble-wrapper">
+                <div id='skillball-bubble'>
+                    <div id="skillball-bubble-text"><span class="t-pink">그런데</span> 말입니다,</div>
+                    <div id="skillball-bubble-arrow"></div>
+                </div>
+            </div>
+            <!--스킬볼 - 강조 말풍선 End-->
+            <!--스킬볼 - 캐릭터 대화-->
+            <div id="skillball-charatalk" class='charatalk-wrapper'>
+                <div class="charatalk-man">
+                    <img class='charatalk-img man' src='./src/img/man-bubble-01.png'>
+                    <div class='charatalk-bubble man'>Q. 정확히 <b>무엇</b>을 할 수 있나요?</div>
+                    <div class="charatalk-arrow man"></div>
+                </div>
+                <div class="charatalk-me fitst-me">
+                    <img class='charatalk-img me' src='./src/img/chara-bubble-01.png'>
+                    <div class='charatalk-bubble me'>A. 아래에서 제 <b>스킬</b>을 확인해 주세요!</b></div>
+                    <div class="charatalk-arrow me"></div>
+                </div>
+            </div>
+            <!--스킬볼 - 캐릭터 대화 End-->
+            <!--스킬볼 - 볼 박스-->
+            <p id='skillball-explain'><span class='t-white'>스킬볼</span>을 누르면 <span class='t-white'>더 자세한 정보</span>를 확인할 수
+                있습니다</p>
+            <iframe id='skillball-ballbox' src="./skillball.html" scrolling="no"></iframe>
+            <!--스킬볼 - 볼 박스 End-->
+        </section>
+
+        <!-- 📍 section03 - 포트폴리오-->
+        <section id='portfolio'>
+            <!-- 포트폴리오 - 캐릭터 대화 -->
+            <div id=" portfolio-charatalk" class='charatalk-wrapper'>
+                <div class="charatalk-man">
+                    <img class='charatalk-img man' src='./src/img/man-bubble-02.png'>
+                    <div class='charatalk-bubble man'>Q. 그간 <b>어떤 작업</b>을 했는지 볼 수 있나요?</div>
+                    <div class="charatalk-arrow man"></div>
+                </div>
+                <div class="charatalk-me fitst-me">
+                    <img class='charatalk-img me' src='./src/img/chara-bubble-02.png'>
+                    <div class='charatalk-bubble me'>A. 그럼요! <b>포트폴리오</b>의 일부를 보여드릴게요.</div>
+                    <div class="charatalk-arrow me"></div>
+                </div>
+            </div>
+            <!-- 포트폴리오 - 개인 프로젝트 -->
+            <div class='portfolio-category'>
+                <p><b>개인</b>&nbsp;프로젝트</p>
+                <div class='portfolio-group open'>
+                    <!-- ✅ 웨스트윙 -->
+                    <div class='portfolio-wrapper'>
+                        <p class='portfolio-title'><span>(주)웨스트윙 경력기술서 - 웹 퍼블리셔</span></p>
+                        <div class='portfolio-section-wrapper open'>
+                            <!-- 슬라이더 -->
+                            <div class='portfolio-section'>
+                                <div class="slider-container">
+                                    <!-- slick 초기화 대상 -->
+                                    <div class="slider">
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing1.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing2.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing3.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing4.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing5.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing6.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing7.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing8.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing9.jpg)"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/wing/wing10.jpg)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세부 내용 -->
+                            <div class="grid-container">
+                                <!-- 근무기간 -->
+                                <div class="grid-item">근무기간</div>
+                                <div class="grid-item">2022.12 ~ 2024.05 <span class='t-black0-5'>(1년 6개월 근무)</span>
+                                </div>
+                                <!-- 적용스킬 -->
+                                <div class="grid-item">적용스킬</div>
+                                <div class="grid-item skills">
+                                    <ul class='puble-skill'>
+                                        <li>HTML5</li>
+                                        <li>CSS</li>
+                                        <li>JS6</li>
+                                    </ul>
+                                    <ul class='design-skill'>
+                                        <li>Adobe XD</li>
+                                        <li>Adobe Photoshopt</li>
+                                        <li>Adobe Illustrator</li>
+                                    </ul>
+                                    <ul class='other-skill'>
+                                        <li>카페24</li>
+                                    </ul><b>⋯</b>
+                                </div>
+                                <!-- 담당직무 -->
+                                <div class="grid-item">담당직무</div>
+                                <div class="grid-item">기획 및 설계<span class='t-black0-5'>(70%)</span>, UI/UX 디자인<span
+                                        class='t-black0-5'>(100%)</span>, 웹
+                                    퍼블리싱<span class='t-black0-5'>(100%)</span>, 동영상 편집<span
+                                        class='t-black0-5'>(100%)</span>
+                                    <b>⋯</b>
+                                </div>
+                                <!-- 프로젝트 -->
+                                <div class="grid-item full-width">프로젝트</div>
+                                <div class="grid-item full-width">
+                                    <h4>(1) 자사몰 APP 홈 화면 리뉴얼</h4>
+                                    - 수행 기간 : 2024.03 ~ 2024.04<br>
+                                    - 기획 요약 : 자사몰(지브로마트) APP의 홈 화면 개선점 도출 후 디자인 리뉴얼<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 국내 주요 e커머스 앱과 자사몰의 홈 화면 비교 분석 후 벤치마킹 자료 정리<br>
+                                    ② Adobe XD를 활용하여 와이어 프레임 설계 후 UI/UX 디자인 제작<br>
+                                    ③ 플러그인 제작 업체에 'AI 상품 추천 구좌', '사용자 활동 기반 쿠폰 증정 캠페인' 기능 주도적으로 기획하여 의뢰<br>
+                                    ④ 수정 용이성과 사용성을 고려한 퍼블리싱 진행<br>
+                                    - 업무 성과 : 체류시간, 배너 클릭수 등 수치로서 유의미한 성과 도출<br>
+
+
+                                    <h4>(2) 자사몰 운영 및 퍼블리셔 직무 가이드 구축</h4>
+                                    - 수행 기간 : 2024.04 ~ 2024.04<br>
+                                    - 기획 요약 : 노션과 PowerPoint를 활용하여 자사몰(지브로마트) 운영 및 퍼블리셔 직무 가이드 구축<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 자사몰 운영 및 퍼블리셔 직무 프로세스를 PowerPoint 400장 이상의 시각 자료로 제작하여 노베이스도 따라할 수 있도록 상세히 작성<br>
+                                    ② PowerPoint로 작성된 자료를 노션에 업무별로 분류하고, 세부 설명과 유의사항, 보조 업무 등을 추가하여 체계를 갖춘 웹 가이드 구축<br>
+                                    ③ 비개발자도 수정할 수 있는 수준으로 기존 코드 리팩토링 및 주석 추가<br>
+                                    - 업무 성과 : 방대한 업무 범위를 비개발자도 원활히 수행할 수 있도록 인수인계 완료<br>
+
+
+                                    <h4>(3) 라O온즈O크 콜라보레이션 캠페인</h4>
+                                    - 수행 기간 : 2023.03 ~ 2024.04<br>
+                                    - 기획 요약 : 2023-2024 KBO 프로야구 시즌 동안 라O온즈O크와 콜라보를 통해 다양한 캠페인 진행<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① KBO 시즌 동안 자사몰 홍보를 위한 이닝간 이벤트 기획 및 홍보 소재(전광판 홍보물 등) 산출<br>
+                                    ② 거래처(O뚜기, O원 등) 협찬 이벤트 기획 및 홍보 소재(전광판 홍보물 등) 산출<br>
+                                    ③ 라O온즈O크 홈 경기 기간 동안만 접속 가능한 프로모션 랜딩페이지를 매년 기획에 맞춰 리뉴얼 후 운영<br>
+                                    ④ SNS(인스타그램)를 이용한 라O온즈파크 콜라보레이션 이벤트, 설문조사 등 캠페인 운영<br>
+                                    - 업무 성과 : 자사몰 접속수, PV, 구매율 증가 등 수치로서 유의미한 성과 도출<br>
+
+
+                                    <h4>(4) 자사몰 프로모션 랜딩페이지 운영</h4>
+                                    - 수행 기간 : 매월 2-3회 약 1주 소요<br>
+                                    - 기획 요약 : 매월 2-3개의 컨셉 및 브랜드 프로모션을 기획하여 랜딩페이지 제작 후 운영<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 각 시즌 트렌드에 맞추거나 자체 컨셉을 구상하여 프로모션 이벤트 기획<br>
+                                    ② 각 기획 의도가 잘 드러나는 랜딩페이지 디자인을 산출하여 퍼블리싱 진행<br>
+                                    ③ 매주 진행중인 이벤트 성과 분석 후 개선사항 도출<br>
+                                    - 업무 성과 : 사용자에게 다양한 혜택을 제공해 구매율, 매출 등 수치로서 유의미한 성과 도출 (ROI 기반)<br>
+
+
+                                    <h4>(5) 카카오톡 알림톡을 활용한 개인화 마케팅</h4>
+                                    - 수행 기간 : 상시<br>
+                                    - 내용 요약 : 일정 기간마다 특정 고객군을 타기팅하여 맞춤 홍보물을 전송하는 CRM 마케팅<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 카카오 비즈니스에서 제공하는 각 템플릿의 특성을 살린 소재 제작<br>
+                                    ② 매주 전송한 알림톡 성과 분석<br>
+                                    - 업무 성과 : 특정 상품을 구매한 고객, 충성도가 높은 고객과 같이 맞춤 타기팅을 통한 캠페인으로 섬세한 고객 관리 수행<br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='portfolio-arrow'>
+                            <svg class='open' width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
+                                    fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- ✅ 플레이파크 -->
+                    <div class='portfolio-wrapper'>
+                        <p class='portfolio-title'><span>(주)플레이파크 경력기술서 - 사업기획</span></p>
+                        <div class='portfolio-section-wrapper'>
+                            <!-- 슬라이더 -->
+                            <div class='portfolio-section'>
+                                <div class="slider-container">
+                                    <!-- slick 초기화 대상 -->
+                                    <div class="slider">
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark01.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark02.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark03.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark04.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark05.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark06.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark07.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark08.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark09.jpg)">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio//playpark/playpark10.jpg)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세부 내용 -->
+                            <div class="grid-container">
+                                <!-- 근무기간 -->
+                                <div class="grid-item">근무기간</div>
+                                <div class="grid-item">2022.09 ~ 2022.11 <span class='t-black0-5'>(3개월 근무)</span>
+                                </div>
+                                <!-- 적용스킬 -->
+                                <div class="grid-item">적용스킬</div>
+                                <div class="grid-item skills">
+                                    <ul class='puble-skill'>
+                                        <li>HTML5</li>
+                                        <li>CSS</li>
+                                        <li>JS6</li>
+                                    </ul>
+                                    <ul class='design-skill'>
+                                        <li>Adobe XD</li>
+                                        <li>Adobe Photoshopt</li>
+                                        <li>Adobe Illustrator</li>
+                                    </ul>
+                                    <ul class='other-skill'>
+                                        <li>PowerPoint</li>
+                                    </ul><b>⋯</b>
+                                </div>
+                                <!-- 담당직무 -->
+                                <div class="grid-item">담당직무</div>
+                                <div class="grid-item">제안서 작성<span class='t-black0-5'>(100%)</span>, 사업기획<span
+                                        class='t-black0-5'>(35%)</span>, UI/UX 디자인<span
+                                        class='t-black0-5'>(100%)</span>, 웹
+                                    퍼블리싱<span class='t-black0-5'>(100%)</span>, 동영상 편집<span
+                                        class='t-black0-5'>(100%)</span>
+                                    <b>⋯</b>
+                                </div>
+                                <!-- 프로젝트 -->
+                                <div class="grid-item full-width">프로젝트</div>
+                                <div class="grid-item full-width">
+                                    <h4>(1) KISTI 메타버스 협업 플랫폼 '키온버스' 고도화 사업제안</h4>
+                                    - 수행 기간 : 2022.11 ~ 2022.11 (5일 소요)<br>
+                                    - 기획 요약 : KISTI에 납품한 '키온버스' 메타버스의 고도화 전략 제안 및 최신 버전 홍보 영상 제작<br>
+                                    - 참여 비율(참여 인력) : 60%(3명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 고도화 아이디어 착안 및 사례 조사하여 노션에 정리<br>
+                                    ② 전체 회의를 통해 전략 발표 후 타 부서 의견 수렴하여 조율<br>
+                                    ③ PPT를 활용해 고도화 전략 제안서 제작<br>
+                                    ④ 최신 버전 '키온버스' 홍보 영상 제작 (1일 소요)<br>
+                                    - 업무성과 : 홍보 영상 KISTI 측 반응 긍정적, 아이디어 구체화 능력 강화, 영상 편집 기술 강화, 커뮤니케이션 능력 강화<br>
+
+
+                                    <h4>(2) OO시 자체 관광 메타버스 구축 사업제안</h4>
+                                    - 수행 기간 : 2022.10 ~ 2022.10 (3주 소요)<br>
+                                    - 기획 요약 : 관광객 유입을 위한 OO시 메타버스 행사 기획 및 고도화 제안<br>
+                                    - 참여 비율(참여 인력) : 60%(3명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 제안요청서 분석하여 자료 조사 후 업무 지시 사항에 부합하는 기획안 마련<br>
+                                    ② 유기/지속적인 메타버스 운영을 위한 전반적인 콘텐츠 · 운영 기획<br>
+                                    > 세계관 및 스토리 구성<br>
+                                    > 캐릭터 콘셉트 기획<br>
+                                    > 메타버스 행사 콘텐츠 기획 (콘서트, 뮤지컬 등)<br>
+                                    > 관광 메타버스 콘텐츠 기획 (게이미피케이션을 적용한 관광 정보 전달, 지역 경제 활성화, 창작/예술가 지원, 사용자 유입/유치 방안 등)<br>
+                                    ③ 공동 수급 후보 업체 혹은 공고기관에 직접 방문하여 주도적으로 미팅 진행<br>
+                                    ④ 그래픽을 활용한 기획 개념도 제작<br>
+                                    ⑤ 2D 그래픽 작업에 인공지능 기술(Midjourney, NovelAI) 도입 후 컨셉아트 제작
+                                    - 업무성과 : 인공지능 프로그램 활용 제안이 승인됨으로써 인력 부족 문제 해결, 아이디어 구체화 능력 강화, 커뮤니케이션 능력 강화<br>
+                                    - 개선 사항 : 보다 빠른 컨펌이 가능하도록 핵심만 정리해 전달하는 요령 필요<br>
+
+
+                                    <h4>(3) 국내 프로 여자배구단 메타버스 월드 구축 사업기획</h4>
+                                    - 수행 기간 : 2022.10 ~ 2022.10 (6일 소요)<br>
+                                    - 기획 요약 : 구단 브랜드 인지도 향상 및 메타버스를 활용한 팬 콘텐츠 기획<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 요청사 측 지시 사항을 토대로 사례 조사 및 콘텐츠 기획, 부가적인 제안 내용 수렴<br>
+                                    ② 33장 분량의 기업 최적화 PPT 제작<br>
+                                    ③ 그래픽을 활용한 시각적 자료 제작 (도식화 한 조감도 등)<br>
+                                    ④ 50장 분량의 회사소개서 PPT 제작<br>
+                                    - 업무성과 : 아이디어 구체화 능력 강화, PPT 문서 작성 능력 향상<br>
+                                    - 개선 사항 : PPT 작성 시 강조할 내용은 한 페이지 전체를 이용할 수 있도록 레이아웃 개선<br>
+
+
+                                    <h4>(4) 청O대학교 메타버스 플랫폼 구축 사업제안</h4>
+                                    - 수행 기간 : 2022.09 ~ 2022.09 (2주 소요)<br>
+                                    - 기획 요약 : 4차 산업혁명시대를 대비하여 학생 역량 강화 및 인프라 마련 목적 가상 캠퍼스 구축 제안<br>
+                                    - 참여 비율(참여 인력) : 33%(3명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 제안요청서에 기술된 업무 지시 사항과 요구되는 양식을 파악하여 hwp형태의 정성적 제안서 작성<br>
+                                    ② 제안서에 사용될 인포그래픽 등 시각 자료 제작<br>
+                                    - 업무성과 : AWS, NHN 클라우드 등 개발 업무 지식 향상<br>
+                                    - 개선사항 : 고도의 개발 지식 함양히여 기술 업무 지시 사항 정확한 파악 요구<br>
+
+
+                                    <h4>(5) 국OO주박물관 메타버스 구축 사업제안</h4>
+                                    - 수행 기간 : 2022.09 ~ 2022.09 (2일 소요)<br>
+                                    - 기획 요약 : 다양한 콘텐츠를 제공해 사용자로 하여금 유물에 대한 관심도를 높이고 방문을 유도하는 가상 박물관 구축 제안<br>
+                                    - 참여 비율(참여 인력) : 33%(3명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 박물관 메타버스 콘텐츠 기획<br>
+                                    ② 51장 분량의 기업 최적화 PPT 제작<br>
+                                    - 업무성과 : 아이디어 구체화 능력 강화, PPT 작성 요령 강화<br>
+
+
+                                    <h4>(6) 국내 주류 기업 대상 메타버스 콜라보 · 구축 사업제안</h4>
+                                    - 수행 기간 : 2022.09 ~ 2022.09<br>
+                                    - 기획 요약 : 국내 최대 주류 기업을 포함한 총 3곳의 기업에 자사 대학교 메타버스와 콜라보 또는 자체적인 월드 구축 제안<br>
+                                    - 참여 비율(참여 인력) : 100%(1명)<br>
+                                    - 주요 업무 :<br>
+                                    ① 1차적으로 총 52장 분량의 기업 최적화 PPT 제작 및 내용 템플릿화 (검토 후 최종 수정까지 1일 소요)<br>
+                                    ② 앞서 제작한 템플릿에 내용을 변형 또는 추가하는 방식으로 나머지 기업 PPT 제작 (검토 후 최종 수정까지 4일 소요)<br>
+                                    ③ 각 기업 담당자와 컨택 후 이메일을 통해 사업제안서 송부<br>
+                                    - 업무성과 : PPT 문서 작성 속도 비약적 향상, 사업제안서 작성 요령 습득 및 강화, 커뮤니케이션 능력 강화<br>
+                                    - 개선사항 : 속도는 빠르나 디자인과 레이아웃에 과도하게 힘을 쏟는 경향이 있으므로 절제 필요<br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='portfolio-arrow'>
+                            <svg width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
+                                    fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- ✅ 영진 - 개인 -->
+                    <div class='portfolio-wrapper'>
+                        <p class='portfolio-title'><span>영진 직업전문학교 KDT - 개인 프로젝트</span></p>
+                        <div class='portfolio-section-wrapper'>
+                            <div class='portfolio-section'>
+                                <div class="slider-container">
+                                    <!-- 슬라이더 -->
+                                    <div class="slider">
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/groove_thb.jpg);"
+                                            data-video-src="./src/img/portfolio/yg-personal/groove_ucc.mp4">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/dodum_thb.jpg);"
+                                            data-video-src="./src/img/portfolio/yg-personal/dodum_ucc.mp4">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/doughnuts01.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/doughnuts02.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/doughnuts03.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/doughnuts04.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/ecoce_thb.jpg);"
+                                            data-video-src="./src/img/portfolio/yg-personal/ecoce_ucc.mp4"></div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-personal/firstF_thb.jpg)"
+                                            data-video-src="./src/img/portfolio/yg-personal/firstF2.mp4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세부내용 -->
+                            <div class="grid-container">
+                                <!-- 수행기간 -->
+                                <div class="grid-item">수행기간</div>
+                                <div class="grid-item">2021.12 ~ 2022.07 <span class='t-black0-5'>(6개월 과정)</span>
+                                </div>
+                                <!-- 적용스킬 -->
+                                <div class="grid-item">적용스킬</div>
+                                <div class="grid-item skills">
+                                    <ul class='puble-skill'>
+                                        <li>HTML5</li>
+                                        <li>CSS</li>
+                                        <li>JS6</li>
+                                        <li>React</li>
+                                        <li>MySQL</li>
+                                        <li>API</li>
+                                    </ul>
+                                    <ul class='design-skill'>
+                                        <li>Adobe XD</li>
+                                        <li>Adobe Photoshopt</li>
+                                        <li>Adobe Illustrator</li>
+                                        <li>Adobe Premiere</li>
+                                        <li>Figma</li>
+                                    </ul>
+                                    <ul class='other-skill'>
+                                        <li>PowerPoint</li>
+                                    </ul><b>⋯</b>
+                                </div>
+                                <!-- 담당직무 -->
+                                <div class="grid-item">수행내용</div>
+                                <div class="grid-item">기획 및 설계, UI/UX 디자인, 웹 퍼블리싱, 프론트엔드 개발 <b>⋯</b>
+                                </div>
+                                <!-- 프로젝트 -->
+                                <div class="grid-item full-width">프로젝트</div>
+                                <div class="grid-item full-width">
+                                    <h4>(1) 브랜드 웹 사이트 리뉴얼 - 크리스피크림도넛</h4>
+                                    - 수행 기간 : 2022.02 ~ 2022.03<br>
+                                    - 적용 기술 : HTML5, CSS3, JavaScript, Adobe XD, Adobe Illustrator, Adobe Photoshop
+                                    ⋯<br>
+                                    - 프로젝트 요약 :<br>
+                                    ① HTML, CSS, JavaScript 숙련 중 진행한 첫 퍼블리싱 프로젝트<br>
+                                    ② 기존 크리스피크림 도넛 홈페이지의 디자인과 기능을 참고하여 재설계 진행 후 프로토타입 제작<br>
+                                    ③ 재설계 된 디자인을 토대로 퍼블리싱 진행<br>
+
+                                    <h4>(2) 뮤직앱 UI/UX 설계 및 디자인 - 그루브</h4>
+                                    - 수행 기간 : 2022.02 ~ 2022.03<br>
+                                    - 적용 기술 : Adobe XD, Adobe Illustrator, Adobe Photoshop ⋯<br>
+                                    - 프로젝트 요약 :<br>
+                                    ① Adobe XD 사용법을 디테일하게 숙련하는 과정에서 진행된 아이폰 규격 뮤직앱 설계 프로젝트<br>
+                                    ② 최근 트렌디함으로 각광받는 미니멀한 레이아웃 채택<br>
+                                    ③ 어두운 장소에서도 눈에 피로감을 주지 않는 저명도 보라색 메인 컬러로 채택<br>
+                                    ④ 텁텁함을 환기할 고채도 고명도 자주색 포인트 컬러 채택<br>
+                                    ⑤ 가사 모드, 노래방 모드, EQ설정과 같은 다양한 동적 기능 실제 사용감과 동일하도록 프로토타입 제작<br>
+
+                                    <h4>(3) 스마트 문화 콘텐츠 앱 UI/UX 디자인 - 돋움</h4>
+                                    - 수행 기간 : 2022.02 ~ 2022.03<br>
+                                    - 적용 기술 : Adobe XD, Adobe Illustrator, Adobe Photoshop ⋯<br>
+                                    - 프로젝트 요약:<br>
+                                    ① 스마트 문화 콘텐츠 앱을 구상하고 기획안을 토대로 프로토타입을 구현해보는 프로젝트<br>
+                                    ② 일러스트레이터와 2030 고객층을 보다 쉽게 연결할 수 있는 플랫폼 및 세부 콘텐츠 구상<br>
+                                    ③ 작품이 돋보일 수 있도록 보다 심플한 구조와 모노톤 채택<br>
+                                    ④ 자칫 심심하지 않도록 동적인 효과를 적절히 부여<br>
+
+                                    <h4>(4) 탄소 저감 어플 UI/UX 리디자인 - 에코스</h4>
+                                    - 수행 기간 : 2022.07 ~ 2022.07<br>
+                                    - 적용 기술 : Adobe XD, Adobe Illustrator, Adobe Photoshop ⋯<br>
+                                    - 프로젝트 요약 :<br>
+                                    ① 산학협력 기업에서 기존 개발중이던 'ECOCE' 탄소 저감 어플 사용성 테스트 진행<br>
+                                    ② 도출된 문제점을 토대로 5페이지 분량 UI/UX 재설계 진행 (6시간 소요)<br>
+
+                                    <h4>(5) Figma 입문기 - 어플리케이션 로그인 프로세스</h4>
+                                    - 수행 기간 : 2022.09 ~ 2022.09<br>
+                                    - 적용 기술 : Figma, Adobe Illustrator, Adobe Photoshop ⋯<br>
+                                    - 프로젝트 요약:<br>
+                                    ① 직업훈련과정 외 개인 프로젝트로 Figma 사용법을 숙련하는 과정에서 진행<br>
+                                    ② 어플리케이션 로그인 프로세스를 주제로 선정<br>
+                                    ③ Toss사의 사용성에 집중한 심플한 레이아웃 참고<br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='portfolio-arrow'>
+                            <svg width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
+                                    fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- ✅ 2022 포트폴리오 -->
+                    <div class='portfolio-wrapper'>
+                        <p class='portfolio-title'><span>웹 포트폴리오 2022</span></p>
+                        <div class='portfolio-section-wrapper'>
+                            <div class='portfolio-section'>
+                                <div class="slider-container">
+                                    <!-- 슬라이더 -->
+                                    <div class="slider">
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio01.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio02.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio03.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio04.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio05.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/portfolio2022/portfolio06.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세부내용 -->
+                            <div class="grid-container">
+                                <!-- 수헹기간 -->
+                                <div class="grid-item">수행기간</div>
+                                <div class="grid-item">2022.09 ~ 2022.11</div>
+                                <!-- 적용스킬 -->
+                                <div class="grid-item">적용스킬</div>
+                                <div class="grid-item skills">
+                                    <ul class='puble-skill'>
+                                        <li>HTML5</li>
+                                        <li>CSS</li>
+                                        <li>JS6</li>
+                                    </ul>
+                                    <ul class='design-skill'>
+                                        <li>Adobe XD</li>
+                                        <li>Adobe Photoshopt</li>
+                                        <li>Adobe Illustrator</li>
+                                    </ul><b>⋯</b>
+                                </div>
+                                <!-- 담당직무 -->
+                                <div class="grid-item">수행내용</div>
+                                <div class="grid-item">기획 및 설계, UI/UX 디자인, 웹 퍼블리싱, API <b>⋯</b></div>
+                                <!-- 프로젝트 -->
+                                <div class="grid-item full-width">프로젝트</div>
+                                <div class="grid-item full-width">
+                                    <h4>2022 웹 포트폴리오 프로젝트</h4>
+                                    - 프로젝트 요약 :<br>
+                                    ① 영진직업전문학교 K-digital 과정을 수료한 후 제작한 포트폴리오<br>
+                                    ② 과정을 진행하며 수행한 프로젝트를 위주로 작성<br>
+                                    ③ Unsplash API를 활용하여 인트로에 랜덤한 텍스처를 불러와 우연한 조화를 연출<br>
+                                    ④ PC, 태블릿, 모바일은 물론 어떤 기기에서도 보기 좋은 UI를 유지할 수 있도록 vw, vh, calc, clamp등의 단위와 계산 함수를 적극
+                                    활용<br>
+                                    ⑤ 내용이 많은 포트폴리오 특성 상 간결하게 UI/UX 설계
+                                </div>
+                            </div>
+                        </div>
+                        <div class='portfolio-arrow'>
+                            <svg width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
+                                    fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- 카테고리 여닫기 -->
+                <div class='category-arrow'>
+                    <svg class='open' width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                        <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)" fill="none"
+                            stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+                    </svg>
+                </div>
+            </div>
+            <!-- 포트폴리오 - 개인 프로젝트 End -->
+
+            <!-- 포트폴리오 - 팀 프로젝트 -->
+            <div class='portfolio-category'>
+                <p><b>팀</b>&nbsp;프로젝트</p>
+                <div class='portfolio-group'>
+                    <!-- ✅ 영진 - 팀 -->
+                    <div class='portfolio-wrapper'>
+                        <p class='portfolio-title'><span>영진 직업전문학교 KDT - 팀 프로젝트</span></p>
+                        <div class='portfolio-section-wrapper open'>
+                            <div class='portfolio-section'>
+                                <div class="slider-container">
+                                    <!-- 슬라이더 -->
+                                    <div class="slider">
+                                        <!-- 고스트북스 -->
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ghost01.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ghost02.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ghost03.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ghost04.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ghost05.jpg);">
+                                        </div>
+                                        <!-- 플래깅 -->
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/flagging_thb.jpg);"
+                                            data-video-src="./src/img/portfolio/yg-team/flagging_ucc.mp4">
+                                        </div>
+                                        <!-- 윈드밀팍스 -->
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/windmill_thb.jpg);"
+                                            data-video-src="./src/img/portfolio/yg-team/windmill_ucc.mp4">
+                                        </div>
+                                        <!-- 영진 리뉴얼 -->
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ygre01.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ygre02.jpg);">
+                                        </div>
+                                        <div class="slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ygre03.jpg);"">
+                                        </div>
+                                        <div class=" slide-item"
+                                            style="background-image: url(./src/img/portfolio/yg-team/ygre04.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세부내용 -->
+                            <div class="grid-container">
+                                <!-- 근무기간 -->
+                                <div class="grid-item">수행기간</div>
+                                <div class="grid-item">2021.12 ~ 2022.7 <span class='t-black0-5'>(6개월 과정)</span>
+                                </div>
+                                <!-- 적용스킬 -->
+                                <div class="grid-item">적용스킬</div>
+                                <div class="grid-item skills">
+                                    <ul class='puble-skill'>
+                                        <li>HTML5</li>
+                                        <li>CSS</li>
+                                        <li>JS6</li>
+                                        <li>React</li>
+                                        <li>MySQL</li>
+                                        <li>API</li>
+                                    </ul>
+                                    <ul class='design-skill'>
+                                        <li>Adobe XD</li>
+                                        <li>Adobe Photoshopt</li>
+                                        <li>Adobe Illustrator</li>
+                                        <li>Adobe Premiere</li>
+                                        <li>Figma</li>
+                                    </ul>
+                                    <ul class='other-skill'>
+                                        <li>PowerPoint</li>
+                                    </ul><b>⋯</b>
+                                </div>
+                                <!-- 수행내용 -->
+                                <div class="grid-item">수행내용</div>
+                                <div class="grid-item">기획 및 설계, UI/UX 디자인, 웹 퍼블리싱, 프론트엔드 개발 <b>⋯</b>
+                                </div>
+                                <!-- 프로젝트 -->
+                                <div class="grid-item full-width">프로젝트</div>
+                                <div class="grid-item full-width">
+                                    <!-- 프로젝트 항목 1 -->
+                                    <h4>(1) Open API 활용 마케팅 랜딩페이지 프로젝트 - 고스트북스</h4>
+                                    - 개발 기간: 2022.04 ~ 2022.05<br>
+                                    - 적용 기술: REST API, jQuery, HTML5, CSS3, JavaScript, Ajax<br>
+                                    - 투입 인원 : 4인<br>
+                                    - 담당 직무: 기획 및 설계(40%), UI/UX디자인(100%), 일러스트 소스 제작(100%), 보고서 작성(80%), 동영상
+                                    편집(100%)<br>
+                                    - 프로젝트 요약:<br>
+                                    ① 산학 협력 기업과 함께 진행한 카카오톡 알림톡 활용 소상공인진흥 마케팅 프로젝트<br>
+                                    ② 2030세대에게 인기있는 독립서점, 대구 교동 소재 '고스트북스'의 반년간지를 주제로 선정<br>
+                                    ③ 마케팅 둘(블랙키위 등)과 SNS를 적극 활용하여 최신 마케팅 트렌드 분석 진행<br>
+                                    ④ 메인페이지, 서브페이지 총 2개의 반응형 페이지 제작<br>
+                                    ⑤ 알림톡 전송 플랫폼(SOLAPI)를 사용해 실제 유저에게 알림 문자 전송 구현<br>
+                                    ⑥ 웹 표준 기준 검증 사이트를 통해 꼼꼼한 검수 진행<br>
+                                    - 프로젝트 성과:<br>
+                                    🏆인공지능혁신 공유대학사업단 공모전 금상<br>
+                                    🏆송암학생작품대전 영상부문 최우수상<br>
+
+                                    <!-- 프로젝트 항목 2 -->
+                                    <h4>(2) GPS 인증 스탬프 투어 웹앱 프로젝트 - 플래깅</h4>
+                                    - 개발 기간: 2022.05 ~ 2022.06<br>
+                                    - 적용 기술: REST API, HTML5, CSS3, JavaScript, MySQL, Kakao 지도 API<br>
+                                    - 투입 인원 : 5인<br>
+                                    - 담당 직무: 기획 및 설계(80%), UI/UX디자인(45%), 웹 퍼블리싱(35%), 동영상 편집(100%)<br>
+                                    - 프로젝트 요약:<br>
+                                    ① GPS API 활용 숙련 과정에서 진행된 관광을 통한 지역 상권 부흥 프로젝트<br>
+                                    ② GPS API, 지도 API, 휴대기기 카메라 연동 기능을 연계해 사용자가 여행 코스를 작성하고 스탬프 투어 후 보상 받는 서비스 기획<br>
+                                    ③ 대부분의 기능과 서비스가 완성도 있게 제작되어 교수님과 산학 협력 업체 대표들로부터 극찬<br>
+                                    - 프로젝트 성과:<br>
+                                    🏆송암학생작품대전 작품부문 우수상<br>
+
+                                    <!-- 프로젝트 항목 3 -->
+                                    <h4>(3) 웹 게임 프로젝트 - 윈드밀팍스</h4>
+                                    - 개발 기간: 2022.04 ~ 2022.07<br>
+                                    - 적용 기술: REST API, HTML5, CSS3, JavaScript, MySQL, Kakao 지도 API<br>
+                                    - 투입 인원 : 5인<br>
+                                    - 담당 직무: 기획 및 설계(30%), UI/UX디자인(40%), 웹 퍼블리싱(30%), 동영상 편집(100%)<br>
+                                    - 프로젝트 요약:<br>
+                                    ① 직업 훈련 과정에서 익힌 기술을 총망라한 개별 프로젝트<br>
+                                    ② 사라진 Flash 게임의 향수를 되살리는 웹 러닝 액션 게임<br>
+                                    ③ 각 스테이지의 아름다운 배경과 주인공 캐릭터 '모래'의 아이템 사용에 따른 다양한 모션 주력<br>
+                                    ④ DB를 활용해 게임 종료 후 점수 등록 및 다른 유저와의 랭킹 시스템 구현<br>
+                                    - 프로젝트 성과:<br>
+                                    🏆송암학생작품대전 영상부문 우수상<br>
+
+                                    <!-- 프로젝트 항목 4 -->
+                                    <h4>(4) 교육기관 웹사이트 리뉴얼 - 영진직업전문학교</h4>
+                                    - 개발 기간: 2022.04 ~ 2022.07<br>
+                                    - 적용 기술: REST API, HTML5, CSS3, JavaScript, MySQL, Kakao 지도 API ...<br>
+                                    - 투입 인원 : 5인<br>
+                                    - 담당 직무: 팀장, 기획 및 설계(100%), UI/UX디자인(100%), API(40%), 보고서 작성(100%)<br>
+                                    - 프로젝트 요약:<br>
+                                    ① HTML, CSS, JavaScript 숙련 중 첫 팀 프로젝트로 교육기관 웹사이트 리뉴얼 진행<br>
+                                    ② 카드소팅 기법을 통해 GNB 정돈<br>
+                                    ③ 사용성 테스트 진행 후 개선 사항 및 벤치마킹 자료 수집, 해결방안 도출 및 재설계<br>
+                                    ④ 챗봇 API 활용 자동 응답 및 문의 기능 연동<br>
+                                    ⑤ Open API 활용 SNS 로그인 연동<br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='portfolio-arrow'>
+                            <svg width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
+                                    fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- 카테고리 여닫기 -->
+                <div class='category-arrow'>
+                    <svg class='' width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                        <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)" fill="none"
+                            stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+                    </svg>
+                </div>
+            </div>
+            <!-- 포트폴리오 - 팀 프로젝트 End -->
+        </section>
+
+        <!-- 📍 section04 - 희망사항 - -->
+        <section id='desires'>
+            <!-- 희망사항 - 캐릭터 대화 -->
+            <div class='desires-charatalk charatalk-wrapper'>
+                <div class="charatalk-man">
+                    <img class='charatalk-img man' src='./src/img/man-bubble-03.png'>
+                    <div class='charatalk-bubble man'>Q. 어떤 조건의 <b>직장</b>을 희망하고 있나요?</div>
+                    <div class="charatalk-arrow man"></div>
+                </div>
+                <div class="charatalk-me fitst-me">
+                    <img class='charatalk-img me' src='./src/img/chara-bubble-03.png'>
+                    <div class='charatalk-bubble me'>A. 현재는 <b>아래 조건</b>에 맞는 직장을 찾고 있어요.</div>
+                    <div class="charatalk-arrow me"></div>
+                </div>
+            </div>
+            <!-- 희망사항 - 캐릭터 대화 End -->
+            <!-- 희망사항 - 희망 내용 -->
+            <div id='desires-summary' style='background-color: white;'>
+                <h2 class='t-pink'>Job Dsires</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>근무형태</td>
+                            <td>정규직 <span>혹은</span> 프리랜서</td>
+                        </tr>
+                        <tr>
+                            <td>필수조건</td>
+                            <td>재택근무 <span>혹은</span> 반려동물 동반출근</td>
+                        </tr>
+                        <tr>
+                            <td>희망조건</td>
+                            <td><span>출근 시</span> 유연근무제, 탄력근무제, 중식 제공</td>
+                        </tr>
+                        <tr>
+                            <td>근무지역</td>
+                            <td>대구광역시, 경상북도 구미시 (재택무관)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id='desires-message'>
+                    <p>현재 개인 사정으로 가능한 재택근무 일감을 찾고 있습니다. 신뢰와 책임감으로 근무하겠습니다!⚡</p>
+                </div>
+            </div>
+            <!-- 희망사항 - 희망 내용 End -->
+            <!-- 희망사항 - 이력서 -->
+            <div id='desires-button'>
+                <div class='button-wrapper'>
+                    <a class='button' title='이력서 페이지로 이동' href='./resume.html'><span class='t-yellow'>이력서
+                            페이지</span>&nbsp;바로가기</a>
+                    <div class='button-notice-wrapper'>
+                        <div class='button-notice t-pink'><b>링크</b> | 웹 페이지로 이동</div>
+                    </div>
+                </div>
+                <div class='button-wrapper'>
+                    <a id='resume-download' class='button' title='이력서 다운로드' href="./src/file/이력서_김수연_웹퍼블리셔.pdf"
+                        download><span class='t-yellow'>이력서
+                            다운로드</span>&nbsp;받기</a>
+                    <div class='button-notice-wrapper'>
+                        <div class='button-notice t-pink'><b>파일</b> | 현재 기기에 내려받기</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 희망사항 - 이력서 End-->
+            <div class="charatalk-me">
+                <div class='charatalk-bubble me'><b>외주 의뢰</b>도 받고 있으니 편하게 연락주세요!</div>
+                <div class="charatalk-arrow me"></div>
+            </div>
+        </section>
+        <!-- 희망사항 End -->
+
+        <!-- 📍 Footer & Contact - -->
+        <footer>
+            <div id='footer-contact-wrapper' class='t-pink'>
+                <p id='footer-contact-t01'><b>비즈니스 관련 문의</b>라면 언제든지 편하게 연락주세요!</p>
+                <div id='footer-contact-email' title='이메일 복사'>
+                    <div class='marker'></div>
+                    <p>sy._.kim@kakao.com</p>
+                </div>
+                <div id='footer-contact-email-bt-wrapper'>
+                    <a id='footer-contact-email-bt' title="기본 이메일 프로그램으로 연결" target="_blank"
+                        href="mailto:sy._.kim@kakao.com?subject=[협업 문의] 포트폴리오 검토 후 연락드립니다 – [회사/이름]?body=안녕하세요. 귀하의 포트폴리오를 보고 연락드립니다.%0D%0A%0D%0A%0D%0A&#183;&nbsp발신인:&nbsp%0D%0A&#183;&nbsp소속(회사명, 직책):&nbsp%0D%0A&#183;&nbsp연락처:&nbsp%0D%0A%0D%0A&#183;내용:&nbsp%0D%0A">
+                        <p class='t-white'>메일 보내기</p>
+                        <svg width="5.207" height="9.414" viewBox="0 0 5.207 9.414">
+                            <path id="arrow-r" d="M23,2039.016l4,4h0l-4,4" transform="translate(-22.293 -2038.309)"
+                                fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1" />
+                        </svg>
+                    </a>
+                </div>
+                <p id='footer-contact-t02'>최대한 빠르게 확인 후 답변 드리겠습니다.</p>
+                <div id='footer-contact-another-bt-wrapper'>
+                    <a id='footer-bt-kakakotalk' title="카카오톡 오픈채팅" href="https://open.kakao.com/o/s7VoKahh">
+                        <svg width="auto" height="15px" viewBox="0 0 512 512" version="1.1">
+                            <path fill="#fff"
+                                d="M255.5 48C299.345 48 339.897 56.5332 377.156 73.5996C414.415 90.666 443.871 113.873 465.522 143.22C487.174 172.566 498 204.577 498 239.252C498 273.926 487.174 305.982 465.522 335.42C443.871 364.857 414.46 388.109 377.291 405.175C340.122 422.241 299.525 430.775 255.5 430.775C241.607 430.775 227.262 429.781 212.467 427.795C148.233 472.402 114.042 494.977 109.892 495.518C107.907 496.241 106.012 496.15 104.208 495.248C103.486 494.706 102.945 493.983 102.584 493.08C102.223 492.177 102.043 491.365 102.043 490.642V489.559C103.126 482.515 111.335 453.169 126.672 401.518C91.8486 384.181 64.1974 361.2 43.7185 332.575C23.2395 303.951 13 272.843 13 239.252C13 204.577 23.8259 172.566 45.4777 143.22C67.1295 113.873 96.5849 90.666 133.844 73.5996C171.103 56.5332 211.655 48 255.5 48Z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a id='footer-bt-call' title="기본 전화 프로그램으로 연결" href="tel:+8250219392082">
+                        <svg width="auto" height="13px" viewBox="0 0 15 15">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-103.000000, -7321.000000)" fill="#ffffff">
+                                    <g transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M61.7302966,7173.99596 C61.2672966,7175.40296 59.4532966,7176.10496 58.1572966,7175.98796 C56.3872966,7175.82796 54.4612966,7174.88896 52.9992966,7173.85496 C50.8502966,7172.33496 48.8372966,7169.98396 47.6642966,7167.48896 C46.8352966,7165.72596 46.6492966,7163.55796 47.8822966,7161.95096 C48.3382966,7161.35696 48.8312966,7161.03996 49.5722966,7161.00296 C50.6002966,7160.95296 50.7442966,7161.54096 51.0972966,7162.45696 C51.3602966,7163.14196 51.7112966,7163.84096 51.9072966,7164.55096 C52.2742966,7165.87596 50.9912966,7165.93096 50.8292966,7167.01396 C50.7282966,7167.69696 51.5562966,7168.61296 51.9302966,7169.09996 C52.6632966,7170.05396 53.5442966,7170.87696 54.5382966,7171.50296 C55.1072966,7171.86196 56.0262966,7172.50896 56.6782966,7172.15196 C57.6822966,7171.60196 57.5872966,7169.90896 58.9912966,7170.48196 C59.7182966,7170.77796 60.4222966,7171.20496 61.1162966,7171.57896 C62.1892966,7172.15596 62.1392966,7172.75396 61.7302966,7173.99596 C61.4242966,7174.92396 62.0362966,7173.06796 61.7302966,7173.99596">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div id='footer-copyright'>
+                <p class='t-white'>ⓒ Copyright <b>Sooyeon Kim</b></p>
+            </div>
+            <svg id='footer-bookmark' width=" 56" height="62" viewBox="0 0 56 62">
+                <g id="contact" transform="translate(0 0.299)">
+                    <path id="merge" d="M28,43.256H56V62Zm-28,0H28L0,62Zm0,0V0H56V43.256Z"
+                        transform="translate(0 -0.299)" fill="#ff005e" />
+                    <text id="Contact-2" data-name="Contact" transform="translate(7 26.701)" fill="#fff" font-size="11"
+                        font-family="Montserrat-SemiBold, Montserrat" font-weight="600" letter-spacing="-0.05em">
+                        <tspan x="0" y="0">Contact</tspan>
+                    </text>
+                </g>
+            </svg>
+            <img id='footer-chara' src='./src/img/chara-contact.png'>
+        </footer>
+    </div>
+    <div class="fullscreen-image">
+        <div class="fullscreen-overlay" alt='슬라이드 확대이미지'></div>
+    </div>
+</body>
+
+<!-- color4Bg-->
+<script src="./js/TrianglesMosaicBg.min.js"></script>
+<script>
+    const bgBox = document.getElementById("pr-chara-canvas-wrapper");
+    let colorbg = new Color4Bg.TrianglesMosaicBg({
+        dom: "pr-chara-canvas-wrapper",
+        colors: ["#ffffff", "#f0f0f0", "#ebebeb", "#e8e8e8", "#d4d4d4", "#cfcfce"],
+        seed: 84874,
+        loop: "true",
+    });
+    // color4Bg 불러오고 나서 scale 추가되어야 오류 안 남
+    document.getElementById("pr-chara-canvas-wrapper").style.transform = "scale(0.25)";
+</script>
+
+<!-- 포트폴리오 토글 -->
+<script src='./js/Toggle.js'></script>
+
+<!-- 카운트 다운 -->
+<script src='./js/Countdown.js'></script>
+
+<!-- 클립보드 복사 및 토스트 표시 -->
+<script src='./js/CopyWithToast.js'></script>
+
+<!-- 사이드 메뉴 인터랙션 -->
+<script src='./js/SideMenu.js'></script>
+
+<!-- 슬릭 슬라이더 + 풀스크린 -->
+<script src='./js/SlickSliderCustom.js'></script>
+
+</html>
