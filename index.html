@@ -35,30 +35,66 @@
             </div>
         </div>
         <div id='side-menu-content' class='hidden'>
-            <div id='side-menu-profilePic'></div>
+            <div id='side-menu-profilePic'>
+            </div>
             <div id='side-menu-introduce'>
-                <p id='side-menu-title'><b>G</b>ood <b>D</b>esigner <b>N</b>ext <b>P</b>ublisher</p>
-                <div id='section-line'></div>
                 <div id='side-menu-summary'>
-                    <p>안녕하세요.
-                        <br><br>
-                        남다른 예리함과 디테일을 겸비한<br>
-                        완벽주의 풀스택 지망생<br>
-                        <b>김수연</b> 입니다.<br>
-                        <br>
-                        사용자의 뇌리에 확실히 각인시킬<br>
-                        유저 친화적 기획 혹은 디자인이<br>
-                        필요하시다면 제 이름 세 글자를<br>
-                        꼭 기억해 주세요.<br>
-                        <br>
-                        자세한 내용은
-                    </p>
+                    <div class="timeline">
+                        <div class='timeline-group 2024'>
+                            <!-- 1행 -->
+                            <div class="timeline-dot">•</div>
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-empty"></div>
+
+                            <!-- 2행 -->
+                            <div class="timeline-empty"></div>
+                            <div class="timeline-date">2024. 09 - 2024. 12</div>
+                            <div class="timeline-details">
+                                <span>SBS게임아카데미</span><br>
+                                레벨디자인 과정 이수
+                            </div>
+                        </div>
+                        <div class='timeline-group 2022'>
+                            <!-- 1행 -->
+                            <div class="timeline-dot">•</div>
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-empty"></div>
+                            <!-- 2행 -->
+                            <div class="timeline-empty"></div>
+                            <div class="timeline-date">2022. 12 - 2024. 05</div>
+                            <div class="timeline-details">
+                                <span>(주)웨스트윙</span><br>
+                                웹 퍼블리셔 근무
+                            </div>
+                            <!-- 3행 -->
+                            <div class="timeline-empty"></div>
+                            <div class="timeline-date">2024. 09 - 2024. 12</div>
+                            <div class="timeline-details">
+                                <span>(주)플레이파크</span><br>
+                                사업기획 근무
+                            </div>
+                        </div>
+                        <div class='timeline-group 2021'>
+                            <!-- 1행 -->
+                            <div class="timeline-dot">•</div>
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-empty"></div>
+                            <!-- 2행 -->
+                            <div class="timeline-empty"></div>
+                            <div class="timeline-date">2021. 12 - 2022. 08</div>
+                            <div class="timeline-details">
+                                <span>영진직업전문학교</span><br>
+                                프론트엔드 과정 수료
+                            </div>
+                        </div>
+                    </div>
+                    <a id='side-menu-bt' href='./resume.html' title="이력서 페이지로 이동">
+                        <p><b>이력서</b> 보러가기</p>
+                    </a>
                 </div>
             </div>
-            <a id='side-menu-bt' href='./resume.html' title="이력서 페이지로 이동">
-                <p><b>이력서</b> 보러가기</p>
-            </a>
         </div>
+    </div>
     </div>
     <div id='mobile'>
         <!-- 📍 header -->
@@ -211,7 +247,8 @@
             <!--스킬볼 - 볼 박스-->
             <p id='skillball-explain'><span class='t-white'>스킬볼</span>을 누르면 <span class='t-white'>더 자세한 정보</span>를 확인할 수
                 있습니다</p>
-            <iframe id='skillball-ballbox' src="./skillball.html" scrolling="no"></iframe>
+            <iframe id='skillball-ballbox' src="./skillball.html" frameborder=0 framespacing=0 marginheight=0
+                marginwidth=0 scrolling=no vspace=0></iframe>
             <!--스킬볼 - 볼 박스 End-->
         </section>
 
@@ -968,9 +1005,11 @@
                 </div>
             </div>
             <!-- 희망사항 - 이력서 End-->
-            <div class="charatalk-me">
-                <div class='charatalk-bubble me'><b>외주 의뢰</b>도 받고 있으니 편하게 연락주세요!</div>
-                <div class="charatalk-arrow me"></div>
+            <div class='charatalk-wrapper'>
+                <div class="charatalk-me">
+                    <div class='charatalk-bubble me'><b>외주 의뢰</b>도 받고 있으니 편하게 연락주세요!</div>
+                    <div class="charatalk-arrow me"></div>
+                </div>
             </div>
         </section>
         <!-- 희망사항 End -->
