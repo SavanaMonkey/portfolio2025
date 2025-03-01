@@ -98,7 +98,7 @@
         }
 
         .ball .inner-content {
-            width: calc(100vw - 32px);
+            width: 80%;
             max-height: 0;
             overflow: hidden;
             transition: max-height 2s ease;
@@ -151,12 +151,14 @@
         /* Slick Slider */
         .slider-container {
             width: 85%;
-            height: fit-content;
-            max-width: 480px;
+            max-width: 800px;
+            height: auto;
+            aspect-ratio: 16 / 9;
             /* 모바일 뷰라면 적당한 값으로 */
             margin: 0 auto;
             padding-bottom: 1px;
-            background: #eee;
+            background: transparent;
+            margin-block: 18px;
         }
 
         .slick-slide {
@@ -167,7 +169,6 @@
         .slide-item {
             aspect-ratio: 16 / 9;
             width: 100%;
-            max-width: 480px;
             /* 필요하다면 최대 너비 제한 */
             background-color: #fff;
             display: flex;
@@ -192,7 +193,8 @@
         }
 
         .slick-dots li.slick-active button:before {
-            color: #ff005e !important;
+            color: white !important;
+            mix-blend-mode: difference !important;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -349,12 +351,22 @@
             $(".slider").slick({
                 slidesToShow: 1,   // 한 번에 보여줄 슬라이드 개수
                 slidesToScroll: 1, // 한 번에 넘길 슬라이드 개수
-                arrows: true,      // 좌우 화살표 표시 여부
-                dots: true,        // 하단 도트 네비게이션 표시 여부
+                arrows: false,      // 좌우 화살표 표시 여부
+                dots: false,        // 하단 도트 네비게이션 표시 여부
                 infinite: true,    // 무한 반복 여부
                 autoplay: true,    // 자동 재생 여부
-                autoplaySpeed: 3000, // 자동 재생 속도 (3초)
-                adaptiveHeight: true // 슬라이드 높이 자동 조정
+                autoplaySpeed: 4000, // 자동 재생 속도 (3초)
+                adaptiveHeight: true, // 슬라이드 높이 자동 조정
+                prevArrow: `<button type="button" class="slick-prev" style="height:100%; display:flex; justify-content:center; align-items:center; width:fit-content; left:-42px; mix-blend-mode:difference; padding-inline:14px;">
+              <svg width="14" height="14" viewBox="0 0 6.206 10.412">
+                <path d="M28,2039.016l-5,4.5h0l5,4.5" transform="translate(-22.5 -2038.31)" fill="none" stroke="#fff" stroke-linecap="miter-clip" stroke-linejoin="miter-clip" stroke-width="1"/>
+              </svg>
+            </button>`,
+                nextArrow: `<button type="button" class="slick-next" style="height:100%;display:flex;justify-content:center;align-items:center;width:fit-content; right:-42px; mix-blend-mode:difference; padding-inline:14px;">
+              <svg width="14" height="14" viewBox="0 0 6.206 10.412">
+                <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)" fill="none" stroke="#fff" stroke-linecap="miter-clip" stroke-linejoin="miter-clip" stroke-width="1"/>
+              </svg>
+            </button>`,
             });
 
             // Slick Slider 내부에서 발생한 클릭 이벤트는 .ball 이벤트로 전달되지 않도록 차단
