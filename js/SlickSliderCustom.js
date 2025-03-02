@@ -15,6 +15,7 @@ $(function () {
 
   // 슬릭 슬라이더 초기 설정
   $(".slider").slick({
+    lazyLoad: "ondemand",
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,

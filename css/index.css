@@ -752,6 +752,7 @@ header {
 }
 
 #skillball-ballbox {
+  display: block;
   width: 100%;
   height: min(110vw, 560px);
   border: none;
@@ -1177,7 +1178,7 @@ footer {
 /* 포트폴리오 */
 
 .portfolio-wrapper {
-  width: 100%;
+  width: calc(100% - 32px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1222,18 +1223,22 @@ footer {
   width: 100%;
   max-height: 0px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   will-change: max-height;
   transition: max-height 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .portfolio-section-wrapper {
-  width: calc(100% - 32px);
+  width: 100%;
+  max-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #eee;
-  max-height: 0;
   overflow: hidden;
   will-change: max-height;
   transition: max-height 1s cubic-bezier(0.77, 0, 0.175, 1);
@@ -1241,7 +1246,11 @@ footer {
 
 .portfolio-section-wrapper.open,
 .portfolio-group.open {
+  width: 100%;
   max-height: 1000vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .portfolio-section {
@@ -1254,6 +1263,7 @@ footer {
 }
 
 .portfolio-title {
+  width: 100%;
   height: 40px;
   font-family: "Pretendard";
   font-weight: 700;
@@ -1261,7 +1271,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 32px);
   background: #eee;
   margin-top: 14px;
 }
@@ -1271,7 +1280,7 @@ footer {
 }
 
 .portfolio-arrow {
-  width: calc(100% - 32px);
+  width: 100%;
   height: 18px;
   display: flex;
   justify-content: center;

@@ -11,13 +11,18 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="https://use.typekit.net/aqp2ybk.css">
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" preload></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" preload></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
 </head>
 
 <body>
+    <!-- 로딩화면 -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- 📱 우선은 mobile 기준 -->
     <div id='side-menu-wrapper' class='side-menu display-none'>
         <div id='side-menu-close-wrapper'>
@@ -403,7 +408,7 @@
                                 </div>
                             </div>
                             <div class='portfolio-arrow'>
-                                <svg class='open' width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
+                                <svg class='' width="6.206" height="10.412" viewBox="0 0 6.206 10.412">
                                     <path d="M23,2039.016l5,4.5h0l-5,4.5" transform="translate(-22.294 -2038.31)"
                                         fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="1" />
@@ -1175,38 +1180,40 @@
     })();
 </script>
 
-<!-- GSAP -->
+<!-- GSAP  -->
 <script>
     gsap.registerPlugin(ScrollTrigger);
+
+    // 필요한 요소들의 초기 인라인 스타일 저장 (반응형 미디어쿼리 사용 시 유용)
+    ScrollTrigger.saveStyles(".pr-bubble, #pr-chara-img-wrapper, #pr-chara-bubble, #skillball-img-wait, #skillball-ballbox, #portfolio-category-wrapper, #desires-summary, #skillball-bubble-wrapper, .charatalk-wrapper");
 
     // 맨 처음 말풍선 나타내기
     gsap.fromTo(".pr-bubble",
         { y: 60, opacity: 0 }, // 초기 상태 (아래에서 시작)
         {
             y: 0, opacity: 1, duration: 1.2, ease: "power2.out",
-            stagger: 0.4, // 각 요소가 0.6초 간격으로 실행
+            stagger: 0.4, // 각 요소가 0.4초 간격으로 실행
             scrollTrigger: {
                 trigger: ".pr-bubble"
             },
         }
     );
 
-    // 말풍선이랑 같이 인트로 캐릭터 나타내기
-    gsap.utils.toArray(["#pr-chara-img-wrapper", "#pr-chara-bubble",]).forEach((element) => {
+    // 말풍선과 함께 인트로 캐릭터 나타내기
+    gsap.utils.toArray(["#pr-chara-img-wrapper", "#pr-chara-bubble"]).forEach((element) => {
         gsap.fromTo(element,
-            { y: 14, }, // 초기 상태
+            { y: 14 }, // 초기 상태
             {
                 y: 0, duration: 1.6, ease: "power2.out",
-                // delay: 1.4,
                 scrollTrigger: {
                     trigger: "#pr-chara-img-wrapper",
                     once: true
                 }
             }
-        )
+        );
     });
 
-
+    // 스킬볼 이미지 나타내기
     gsap.fromTo("#skillball-img-wait",
         { scale: 0, opacity: 0 }, // 초기: 숨김 상태
         {
@@ -1216,10 +1223,10 @@
                 start: "top 80%", // 실행될 위치
                 once: true // 한 번만 실행
             },
-        });
+        }
+    );
 
-
-    // 스킬볼
+    // 스킬볼 관련 요소 애니메이션
     gsap.utils.toArray(["#skillball-ballbox", "#portfolio-category-wrapper", "#desires-summary"]).forEach((element) => {
         gsap.timeline({
             scrollTrigger: {
@@ -1237,23 +1244,31 @@
                 { scale: 1, duration: 0.6, ease: "power2.out" }, "-=0.3");
     });
 
-
-    // 아래에서 서서히 나타나는 애니메이션 (배열에 추가하기)
-    // gsap.utils.toArray() 이용해서 class요소도 각각 적용
-
+    // 아래에서 서서히 나타나는 애니메이션 (클래스 요소 각각 적용)
     gsap.utils.toArray(["#skillball-bubble-wrapper", ".charatalk-wrapper"]).forEach((element) => {
         gsap.fromTo(element,
             { y: 60, opacity: 0 }, // 초기 상태 (아래에서 시작)
             {
                 y: 0, opacity: 1, duration: 1.2, ease: "power2.out",
-                scrollTrigger: { trigger: element, start: "top 100%", once: true }
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 100%",
+                    once: true
+                }
             }
         );
     });
+
+    // 창 크기 변경 시 ScrollTrigger 업데이트
+    window.addEventListener('resize', () => {
+        // 필요 시 인라인 스타일을 다시 저장하려면 saveStyles() 호출 가능
+        ScrollTrigger.refresh();
+    });
+
 </script>
 
 <!-- 헤더 이벤트바 -->
-<script defer>
+<script>
     const eventBar = document.querySelector("#event-bar");
     const headerHeight = document.querySelector("header").getBoundingClientRect().height;
     const countdown = document.querySelector("#pr-countdown-timer-wrapper");
