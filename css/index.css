@@ -361,8 +361,8 @@ header {
 
 #pr-chara-canvas-wrapper {
   position: relative;
-  width: 100%; /* 출력할 276px의 4배 */
-  height: 100%; /* 출력할 230px의 4배 */
+  width: 1104px; /* 출력할 276px의 4배 */
+  height: 920px; /* 출력할 230px의 4배 */
   /* script로 scale 변경됨*/
   transform-origin: bottom;
 }
@@ -370,6 +370,7 @@ header {
 #colorbgcanvas {
   /* aspect-ratio: auto !important; */
   pointer-events: none !important;
+  opacity: 0;
 }
 
 /* 캐릭터 일러스트 */
@@ -668,7 +669,14 @@ header {
   width: clamp(328px, 91%, 380px);
   height: fit-content;
   position: relative;
+}
+
+.charatalk-wrapper:not(:last-child) {
   margin-top: 40px;
+}
+
+.charatalk-wrapper:last-child {
+  margin-bottom: 30px;
 }
 
 .charatalk-img {
