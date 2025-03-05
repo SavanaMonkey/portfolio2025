@@ -32,6 +32,7 @@
             height: 100%;
             z-index: -1;
             transition: filter 0.3s ease;
+            background-color: #000;
         }
 
         /* 볼 박스 */
@@ -108,7 +109,7 @@
         }
 
         .ball.expanded .inner-content {
-            max-height: 200vh;
+            max-height: 100vh;
         }
 
         #screen {
@@ -491,11 +492,13 @@
         const balls = [];
         const previousRestitutions = new Map();
         const previousFrictions = new Map();
+
         ballEls.forEach((el, i) => {
-            const vwUnit = window.innerWidth / 100; // 1vw에 해당하는 픽셀 값
-            // 예: 최소 9vw, 최대 10vw 정도의 반지름을 랜덤으로 적용
+            // 1vh에 해당하는 픽셀 값 (창 높이를 기준)
+            const vhUnit = window.innerHeight / 100;
+            // 예: 최소 9vh, 최대 10vh 정도의 반지름을 랜덤으로 적용
             const rawR = Math.floor(
-                Math.random() * (10 * vwUnit - 9 * vwUnit) + 9 * vwUnit
+                Math.random() * (10 * vhUnit - 9 * vhUnit) + 9 * vhUnit
             );
             const maxR = 120; // 최대 반지름 픽셀 값 (원하는 값으로 조정)
             const r = Math.min(rawR, maxR);
@@ -531,15 +534,14 @@
                 const centerX = ballBox.clientWidth / 2;
                 const centerY = ballBox.clientHeight / 2;
                 Body.setPosition(hoveredBall, { x: centerX, y: centerY });
-                // ballBox 기준의 vw 단위 (예: 110vw)로 크기 변경
-                const targetVw = 110;
-                const targetPx = (ballBox.clientWidth * targetVw) / 100;
+                // #bg-box 요소 높이의 120%를 기준으로 크기 변경
+                const bgBox = document.getElementById("bg-box");
+                const targetPx = bgBox.clientHeight * 1.30;
                 el.style.transformOrigin = "center center";
                 el.style.transition = "all 0.5s ease";
                 el.style.width = `${targetPx}px`;
                 el.style.height = `${targetPx}px`;
-                el.style.transform = `translate(${centerX - targetPx / 2}px, ${centerY - targetPx / 2
-                    }px)`;
+                el.style.transform = `translate(${centerX - targetPx / 2}px, ${centerY - targetPx / 2}px)`;
                 // position fixed와 z-index 적용
                 el.style.position = "fixed";
                 el.style.zIndex = "9999";
@@ -564,7 +566,7 @@
                     b.preFallY = b.position.y;
                 });
                 world.gravity.y = 3;
-                // 추가: 확대 시 검은 불투명 screen 표시
+                // 확대 시 검은 불투명 screen 표시
                 document.getElementById("screen").style.display = "block";
                 event.stopPropagation();
             });
