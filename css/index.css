@@ -990,7 +990,7 @@ footer {
   height: auto;
   position: absolute;
   bottom: 0;
-  right: -10px;
+  right: -14px;
   opacity: 0;
 }
 
@@ -1058,6 +1058,7 @@ footer {
   position: fixed;
   height: 100%;
   width: 100%;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
