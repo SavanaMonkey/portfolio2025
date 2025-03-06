@@ -1140,7 +1140,6 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-
     const elements = gsap.utils.toArray([".pr-bubble", "#pr-chara-img-wrapper"]);
     gsap.fromTo(elements,
         { y: 60, opacity: 0 },
@@ -1153,7 +1152,6 @@
             }
         }
     );
-
 
     // 말풍선과 함께 인트로 캐릭터 나타내기
     gsap.fromTo("#pr-chara-bubble",

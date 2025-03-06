@@ -1074,7 +1074,7 @@ footer {
 }
 
 #side-menu-close-wrapper {
-  width: clamp(260px, 100%, 340px);
+  width: clamp(260px, 72%, 340px);
   height: 28px;
   padding-inline: 30px;
   padding-top: 24px;
@@ -1091,7 +1091,7 @@ footer {
 }
 
 #side-menu-content {
-  max-width: clamp(260px, 100%, 340px);
+  max-width: clamp(260px, 72%, 340px);
   height: 100%;
   background-color: black;
   display: flex;
@@ -1157,7 +1157,6 @@ footer {
   display: grid;
   grid-template-columns: 1fr 12fr 10fr;
   grid-template-rows: auto auto auto;
-  gap: 8px 0;
   align-items: stretch;
   letter-spacing: -0.25px;
 }
