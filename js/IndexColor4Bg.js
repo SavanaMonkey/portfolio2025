@@ -1,5 +1,7 @@
 (() => {
   const parentId = "pr-chara-canvas-wrapper";
+  let lastInnerHeight = window.innerHeight; // 마지막 창 높이 저장
+  const HEIGHT_THRESHOLD = 100; // 최소 100px 이상의 변화만 처리
 
   // 부모 요소의 크기를 미디어 쿼리 조건(이상)으로 설정
   const ensureParentSize = () => {
@@ -88,8 +90,13 @@
     initCanvas();
   });
 
-  // 리사이즈 시 transform 제거 후 canvas 재생성
+  // 리사이즈 이벤트: 높이 변화가 임계치 이상일 때만 처리
   window.addEventListener("resize", () => {
+    if (Math.abs(window.innerHeight - lastInnerHeight) < HEIGHT_THRESHOLD) {
+      // 높이 변화가 작으면 내비게이션 바로 인한 변화로 판단하고 무시
+      return;
+    }
+    lastInnerHeight = window.innerHeight;
     const parent = document.getElementById(parentId);
     if (parent) parent.style.transform = "none";
     cleanup();
