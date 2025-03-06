@@ -24,7 +24,10 @@
     </div> -->
 
     <!--마우스-->
-    <div class="cursor"></div>
+    <!-- <div class="cursor"></div> -->
+
+    <!-- 스와이프 전용 영역 -->
+    <div id="swipe-zone"></div>
 
     <!-- 📍 Sidemenu -->
     <div id='side-menu-wrapper' class='side-menu display-none'>
@@ -176,7 +179,7 @@
                     </div>
                     <!--캐릭터 일러스트 - 이미지-->
                     <div id="pr-chara-img-wrapper">
-                        <img src="./src/img/chara-selfPR.png">
+                        <img src="./src/img/chara-selfPR.png" oncontextmenu="return false;" alt='인트로 자화상 캐릭터 이미지'>
                     </div>
                     <!--캐릭터 일러스트 - 윈도우 그래픽-->
                     <div id="pr-chara-window-wrapper">
@@ -237,7 +240,7 @@
             <!-- 📍 section02 - 스킬볼 -->
             <section id='skillball'>
                 <!-- 스킬볼 - 잠시만요 이미지 -->
-                <img id='skillball-img-wait' src='./src/img/wait.png'>
+                <img id='skillball-img-wait' src='./src/img/wait.png' oncontextmenu="return false;" alt='Wait 잠시만요'>
                 <!--스킬볼 - 강조 말풍선-->
                 <div id="skillball-bubble-wrapper">
                     <div id='skillball-bubble'>
@@ -249,12 +252,14 @@
                 <!--스킬볼 - 캐릭터 대화-->
                 <div id="skillball-charatalk" class='charatalk-wrapper'>
                     <div class="charatalk-man">
-                        <img class='charatalk-img man' src='./src/img/man-bubble-01.png'>
+                        <img class='charatalk-img man' src='./src/img/man-bubble-01.png' oncontextmenu="return false;"
+                            alt='인터뷰어 캐릭터 이미지 01'>
                         <div class='charatalk-bubble man'>Q. 정확히 <b>무엇</b>을 할 수 있나요?</div>
                         <div class="charatalk-arrow man"></div>
                     </div>
                     <div class="charatalk-me">
-                        <img class='charatalk-img me' src='./src/img/chara-bubble-01.png'>
+                        <img class='charatalk-img me' src='./src/img/chara-bubble-01.png' oncontextmenu="return false;"
+                            alt='자화상 캐릭터 이미지 01'>
                         <div class='charatalk-bubble me'>A. 아래에서 제 <b>스킬</b>을 확인해 주세요!</b></div>
                         <div class="charatalk-arrow me"></div>
                     </div>
@@ -275,12 +280,14 @@
                 <!-- 포트폴리오 - 캐릭터 대화 -->
                 <div id=" portfolio-charatalk" class='charatalk-wrapper'>
                     <div class="charatalk-man">
-                        <img class='charatalk-img man' src='./src/img/man-bubble-02.png'>
+                        <img class='charatalk-img man' src='./src/img/man-bubble-02.png' oncontextmenu="return false;"
+                            alt='인터뷰어 캐릭터 이미지 02'>
                         <div class='charatalk-bubble man'>Q. 그간 <b>어떤 작업</b>을 했는지 볼 수 있나요?</div>
                         <div class="charatalk-arrow man"></div>
                     </div>
                     <div class="charatalk-me">
-                        <img class='charatalk-img me' src='./src/img/chara-bubble-02.png'>
+                        <img class='charatalk-img me' src='./src/img/chara-bubble-02.png' oncontextmenu="return false;"
+                            alt='자화상 캐릭터 이미지 02'>
                         <div class='charatalk-bubble me'>A. 그럼요! <b>포트폴리오</b>의 일부를 보여드릴게요.</div>
                         <div class="charatalk-arrow me"></div>
                     </div>
@@ -990,12 +997,14 @@
                 <!-- 희망사항 - 캐릭터 대화 -->
                 <div class='desires-charatalk charatalk-wrapper'>
                     <div class="charatalk-man last-man">
-                        <img class='charatalk-img man' src='./src/img/man-bubble-03.png'>
+                        <img class='charatalk-img man' src='./src/img/man-bubble-03.png' oncontextmenu="return false;"
+                            alt='인터뷰어 캐릭터 이미지 03'>
                         <div class='charatalk-bubble man'>Q. 어떤 조건의 <b>직장</b>을 희망하고 있나요?</div>
                         <div class="charatalk-arrow man"></div>
                     </div>
                     <div class="charatalk-me fitst-me">
-                        <img class='charatalk-img me' src='./src/img/chara-bubble-03.png'>
+                        <img class='charatalk-img me' src='./src/img/chara-bubble-03.png' oncontextmenu="return false;"
+                            alt='자화상 캐릭터 이미지 03'>
                         <div class='charatalk-bubble me'>A. 현재는 <b>아래 조건</b>에 맞는 직장을 찾고 있어요.</div>
                         <div class="charatalk-arrow me"></div>
                     </div>
@@ -1119,12 +1128,13 @@
                     </svg>
                 </div>
                 <div id='footer-chara-wrapper'>
-                    <img id='footer-chara' src='./src/img/chara-contact.png'>
+                    <img id='footer-chara' src='./src/img/chara-contact.png' oncontextmenu="return false;"
+                        alt='푸터 자화상 캐릭터 이미지'>
                 </div>
             </div>
             <div id='footer-copyright'>
                 <p class='t-white'>ⓒ Copyright <b>Sooyeon Kim</b> <span id='version'
-                        style='margin-left: 4px; font-weight: 200;'>v1.0.5</span></p>
+                        style='margin-left: 4px; font-weight: 200;'>v1.0.6 resizeEventTest_2</span></p>
             </div>
         </footer>
         <div class="fullscreen-image">
@@ -1166,17 +1176,28 @@
         }
     );
 
-    // 스킬볼 이미지 나타내기
-    gsap.fromTo("#skillball-img-wait",
-        { scale: 0, opacity: 0 }, // 초기: 숨김 상태
-        {
-            scale: 1, opacity: 1, duration: 0.6, ease: "power2.out",
-            scrollTrigger: {
-                trigger: "#skillball-img-wait",
-                once: true
-            },
+    // 잠시만요 이미지 나타내고 움직이기
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#skillball-img-wait",
+            once: true
         }
+    });
+
+    // 잠시만요 이미지 나타내기
+    tl.fromTo("#skillball-img-wait",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
     );
+
+    // 나타난 후 위아래로 두둥실 모션 적용
+    tl.to("#skillball-img-wait", {
+        y: 20,
+        duration: 1.2,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1
+    });
 
     // 푸터 캐릭터 나타내기
     gsap.fromTo("#footer-chara",
