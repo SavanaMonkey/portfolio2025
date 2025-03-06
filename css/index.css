@@ -32,8 +32,8 @@
 }
 
 @font-face {
-  font-family: "RixYeoljeongdo_Regular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff")
+  font-family: "yg-jalnan";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -533,7 +533,7 @@ header {
   font-size: 24px;
   margin-top: 12px;
   letter-spacing: 1.5px;
-  font-family: "RixYeoljeongdo_Regular";
+  font-family: "yg-jalnan";
 }
 
 #pr-countdown-notice-main {
@@ -541,7 +541,8 @@ header {
   font-size: 50px;
   margin-top: 6px;
   letter-spacing: 1.5px;
-  font-family: "RixYeoljeongdo_Regular";
+  font-family: "yg-jalnan";
+  margin-top: -10px;
 }
 
 /* 📍 카운트다운 */
