@@ -990,7 +990,8 @@ footer {
   height: auto;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -10px;
+  opacity: 0;
 }
 
 #footer-contact-another-bt-wrapper {

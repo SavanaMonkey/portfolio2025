@@ -1267,6 +1267,19 @@
         }
     );
 
+    // 푸터 캐릭터 나타내기
+    gsap.fromTo("#footer-chara",
+        { opacity: 0, x: 14 }, // 초기: 숨김 상태
+        {
+            opacity: 1, x: 0, duration: 0.6, ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#footer-chara",
+                start: "top 80%",
+                once: true
+            },
+        }
+    );
+
     // 스킬볼 관련 요소 애니메이션
     gsap.utils.toArray(["#skillball-ballbox", "#portfolio-category-wrapper", "#desires-summary"]).forEach((element) => {
         gsap.timeline({

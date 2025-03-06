@@ -1,46 +1,59 @@
 //✨ 사이드메뉴 인터랙션 ✨
 
-// 실제 화면 높이 부모 요소에 적용
-function setSideMenuHeight() {
-  document.getElementById(
-    "side-menu-wrapper"
-  ).style.height = `${window.innerHeight}px`;
-}
+const body = document.body;
+const sideMenuWrapper = document.getElementById("side-menu-wrapper");
+const sideMenuContent = document.getElementById("side-menu-content");
+const sideMenuCloseWrapper = document.getElementById("side-menu-close-wrapper");
+const sideMenuClose = document.getElementById("side-menu-close");
+const sideMenuBt = document.getElementById("side-menu-bt"); // ❗ 예외 처리할 버튼 추가
 
 // 사이드 메뉴 열기
-document
-  .getElementById("side-menu-open")
-  .addEventListener("click", function () {
-    document.body.style.overflow = "hidden"; // 스크롤 막기
-    document.body.style.position = "fixed"; // 모바일에서 추가
-    document.body.style.width = "100%"; // 레이아웃 깨짐 방지
+document.getElementById("side-menu-open").addEventListener("click", (event) => {
+  event.stopPropagation(); // 클릭 이벤트가 전파되지 않도록 방지
 
-    document.getElementById("side-menu-wrapper").classList.add("visible");
-    document.getElementById("side-menu-close-wrapper").classList.add("active");
-    document.getElementById("side-menu-content").classList.add("active");
-  });
+  body.style.overflow = "hidden";
+  body.style.position = "fixed";
+  body.style.width = "100%";
 
-// 사이드 메뉴 닫기
-document
-  .getElementById("side-menu-close")
-  .addEventListener("click", function () {
-    const content = document.getElementById("side-menu-content");
-    const closeWrapper = document.getElementById("side-menu-close-wrapper");
+  sideMenuWrapper.classList.add("visible");
+  sideMenuCloseWrapper.classList.add("active");
+  sideMenuContent.classList.add("active");
 
-    content.classList.add("remove-delay");
-    closeWrapper.classList.add("remove-delay");
+  // 메뉴가 열린 상태에서 클릭하면 닫히도록 이벤트 추가
+  setTimeout(() => document.addEventListener("click", handleOutsideClick), 10);
+});
 
-    content.classList.remove("active");
-    closeWrapper.classList.remove("active");
+// 사이드 메뉴 닫기 (화면 어디를 눌러도 닫힘)
+function closeSideMenu() {
+  sideMenuContent.classList.add("remove-delay");
+  sideMenuCloseWrapper.classList.add("remove-delay");
 
-    setTimeout(function () {
-      document.getElementById("side-menu-wrapper").classList.remove("visible");
-      content.classList.remove("remove-delay");
-      closeWrapper.classList.remove("remove-delay");
+  sideMenuContent.classList.remove("active");
+  sideMenuCloseWrapper.classList.remove("active");
 
-      // 스크롤 다시 활성화
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    }, 400);
-  });
+  setTimeout(() => {
+    sideMenuWrapper.classList.remove("visible");
+    sideMenuContent.classList.remove("remove-delay");
+    sideMenuCloseWrapper.classList.remove("remove-delay");
+
+    // 스크롤 다시 활성화
+    body.style.overflow = "";
+    body.style.position = "";
+    body.style.width = "";
+
+    // 닫을 때 클릭 이벤트 제거 (중복 방지)
+    document.removeEventListener("click", handleOutsideClick);
+  }, 400);
+}
+
+// 화면 아무 곳이나 클릭하면 닫기 (단, #side-menu-bt 클릭 시 닫히지 않도록 예외 처리)
+function handleOutsideClick(event) {
+  if (event.target !== sideMenuBt) {
+    // 예외 처리
+    closeSideMenu();
+  }
+}
+
+// 닫기 버튼 클릭 시 메뉴 닫기
+sideMenuClose.addEventListener("click", closeSideMenu);
+sideMenuCloseWrapper.addEventListener("click", closeSideMenu);
