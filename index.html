@@ -23,6 +23,9 @@
         <div class="spinner"></div>
     </div> -->
 
+    <!--마우스-->
+    <div class="cursor"></div>
+
     <!-- 📍 Sidemenu -->
     <div id='side-menu-wrapper' class='side-menu display-none'>
         <div id='side-menu-close-wrapper'>
@@ -1056,7 +1059,7 @@
         </div>
         <!-- 📍 Footer & Contact - -->
         <footer>
-            <div id='pc-footer'>
+            <div id='pc-footer' style='user-select: none' ;>
                 <div id='footer-contact-wrapper' class='t-pink'>
                     <p id='footer-contact-t01'><b>비즈니스 관련 문의</b>라면 언제든지 편하게 연락주세요!</p>
                     <div id='footer-contact-email' title='이메일 복사'>
@@ -1104,8 +1107,8 @@
                             <path id="merge" d="M28,43.256H56V62Zm-28,0H28L0,62Zm0,0V0H56V43.256Z"
                                 transform="translate(0 -0.299)" fill="#ff005e" />
                             <text id="Contact-2" data-name="Contact" transform="translate(7 26.701)" fill="#fff"
-                                font-size="11" font-family="Montserrat-SemiBold, Montserrat" font-weight="600"
-                                letter-spacing="-0.05em">
+                                font-size="11" font-family="Pretendard, Montserrat-SemiBold, Montserrat"
+                                font-weight="600" ;>
                                 <tspan x="0" y="0">Contact</tspan>
                             </text>
                         </g>
@@ -1116,8 +1119,8 @@
                 </div>
             </div>
             <div id='footer-copyright'>
-                <p class='t-white'>ⓒ Copyright <b>Sooyeon Kim</b> <span
-                        style='margin-left: 4px; font-weight: 200;'>v0.0.1</span></p>
+                <p class='t-white'>ⓒ Copyright <b>Sooyeon Kim</b> <span id='version'
+                        style='margin-left: 4px; font-weight: 200;'>v1.0.2</span></p>
             </div>
         </footer>
         <div class="fullscreen-image">
@@ -1224,35 +1227,33 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // 필요한 요소들의 초기 인라인 스타일 저장 (반응형 미디어쿼리 사용 시 유용)
-    ScrollTrigger.saveStyles(".pr-bubble, #pr-chara-bubble, #skillball-img-wait, #skillball-ballbox, #portfolio-category-wrapper, #desires-summary, #skillball-bubble-wrapper, .charatalk-wrapper");
 
-    // 맨 처음 말풍선 나타내기
-    gsap.fromTo(".pr-bubble",
-        { y: 60, opacity: 0 }, // 초기 상태 (아래에서 시작)
+    const elements = gsap.utils.toArray([".pr-bubble", "#pr-chara-img-wrapper"]);
+    gsap.fromTo(elements,
+        { y: 60, opacity: 0 },
         {
             y: 0, opacity: 1, duration: 1.2, ease: "power2.out",
-            stagger: 0.4, // 각 요소가 0.4초 간격으로 실행
+            stagger: 0.2, // 각 요소 간 0.4초 간격으로 애니메이션 실행
             scrollTrigger: {
-                trigger: ".pr-bubble",
+                trigger: elements[0], // 첫 번째 요소를 트리거로 사용
                 once: true
-            },
+            }
         }
     );
 
+
     // 말풍선과 함께 인트로 캐릭터 나타내기
-    gsap.utils.toArray(["#pr-chara-bubble"]).forEach((element) => {
-        gsap.fromTo(element,
-            { y: 20 }, // 초기 상태
-            {
-                y: 0, duration: 1.6, ease: "power2.out",
-                scrollTrigger: {
-                    trigger: "#pr-chara-bubble",
-                    once: true
-                }
+    gsap.fromTo("#pr-chara-bubble",
+        { scale: 0 }, // 초기 상태
+        {
+            scale: 1, duration: 0.6, ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#pr-chara-bubble",
+                start: "top 80%",
+                once: true
             }
-        );
-    });
+        }
+    );
 
     // 스킬볼 이미지 나타내기
     gsap.fromTo("#skillball-img-wait",
