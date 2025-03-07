@@ -372,15 +372,25 @@ header {
   width: 276px;
   height: 230px;
   position: relative;
-  background: url(/src/img/pr-chara-bg.jpg) no-repeat center / cover;
+  overflow: hidden;
 }
 
-#pr-chara-canvas-wrapper {
+#pr-chara-bg-video-wrapper {
   position: relative;
-  width: 552px; /* 출력할 276px의 2배 */
-  height: 460px; /* 출력할 230px의 2배 */
+  width: 276px;
+  height: 230px;
   /* script로 scale 변경됨*/
   transform-origin: bottom;
+}
+
+#pr-chara-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 276px;
+  height: 230px;
+  object-fit: cover; /* 부모 요소에 맞게 비율 유지하면서 채움 */
+  opacity: 0;
 }
 
 #colorbgcanvas {
@@ -1595,25 +1605,30 @@ footer {
   #pr-chara-bg {
     width: 540px;
     height: 454px;
-    position: relative;
   }
 
-  #pr-chara-canvas-wrapper {
+  #pr-chara-bg-video-wraaper {
     position: relative;
-    width: 1080px; /* 출력할 540px의 2배 */
-    height: 908px; /* 출력할 454px의 2배 */
+    width: 540px;
+    height: 454px;
     /* script로 scale 변경됨*/
     transform-origin: bottom;
   }
 
-  #pr-chara-bg {
-    background: url(/src/img/pr-chara-bg-768.jpg) no-repeat center / cover;
+  #pr-chara-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 부모 요소에 맞게 비율 유지하면서 채움 */
   }
 
-  #colorbgcanvas {
-    /* aspect-ratio: auto !important; */
+  /* color4Bg 사용 안함 : resize 문제 때문에 */
+  /* #colorbgcanvas {
+    aspect-ratio: auto !important;
     pointer-events: none !important;
-  }
+  } */
 
   /* 인트로 캐릭터 이미지 */
   #pr-chara-img-wrapper {
