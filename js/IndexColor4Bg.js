@@ -1,7 +1,7 @@
 (() => {
   const parentId = "pr-chara-canvas-wrapper";
   let lastInnerHeight = window.innerHeight; // 마지막 창 높이 저장
-  const HEIGHT_THRESHOLD = 100; // 최소 100px 이상의 변화만 처리
+  const HEIGHT_THRESHOLD = 150; // 최소 100px 이상의 변화만 처리
 
   // 부모 요소의 크기를 미디어 쿼리 조건(이상)으로 설정
   const ensureParentSize = () => {

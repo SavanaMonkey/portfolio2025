@@ -1052,18 +1052,6 @@ footer {
   pointer-events: auto; /* 클릭 가능 */
 }
 
-/* 사이드메뉴(햄버거) */
-#swipe-zone {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 50px;
-  height: 100%;
-  z-index: 98;
-  /* 투명한 배경 – 터치 영역만 활성화 */
-  background: transparent;
-}
-
 #side-menu-wrapper {
   position: fixed;
   height: 100%;
