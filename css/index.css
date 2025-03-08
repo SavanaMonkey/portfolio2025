@@ -923,7 +923,8 @@ footer {
   height: auto;
   font-family: "Pretendard";
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.5px;
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
