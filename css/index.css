@@ -1,13 +1,5 @@
 /* 폰트 */
 @font-face {
-  font-family: "Pretendard", serif;
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Montserrat", serif;
   src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
   font-optical-sizing: auto;
@@ -278,11 +270,11 @@ header {
 }
 
 #title {
-  font-family: Montserrat;
+  font-family: "Montserrat";
 }
 
 #state {
-  font-family: Pretendard;
+  font-family: "Pretendard";
 }
 
 /* section01 - self PR */
@@ -929,7 +921,7 @@ footer {
   position: absolute;
   width: fit-content;
   height: auto;
-  font-family: "Pretendard", serif;
+  font-family: "Pretendard";
   font-size: 12px;
   font-weight: 500;
   top: 25%;
