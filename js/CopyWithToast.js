@@ -32,7 +32,7 @@ emailBt.addEventListener("click", function (event) {
 resumeDown.addEventListener("click", function (event) {
   event.stopPropagation(); // 버블링 방지
   // 다운로드가 정상적으로 시작되었다고 가정하고 토스트 표시
-  showToast("이력서를 기기에 내려받았어요 📁");
+  showToast("이력서를 기기에 내려받을게요 📁");
 });
 
 function showToast(message) {
