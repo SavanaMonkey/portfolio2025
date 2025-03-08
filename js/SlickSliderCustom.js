@@ -2,6 +2,7 @@
 
 $(function () {
   var isDragging = false;
+  var scrollY = 0; // 현재 스크롤 위치 저장
 
   // 슬릭 슬라이더에서 터치 또는 마우스 시작 시 플래그 초기화
   $(".slick-slider").on("mousedown touchstart", function () {
@@ -36,8 +37,39 @@ $(function () {
     responsive: [{ breakpoint: 768, settings: { arrows: false } }],
   });
 
+  // 🌟 스크롤 차단 (이벤트 방식으로 완전 차단)
+  function disableScroll() {
+    scrollY = window.scrollY || window.pageYOffset; // 현재 스크롤 위치 저장
+    $("body").css({
+      overflow: "hidden",
+      position: "relative", // 레이아웃 깨지지 않도록 설정
+    });
+
+    // 터치 및 휠 이벤트 차단
+    document.addEventListener("wheel", preventScroll, { passive: false });
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+  }
+
+  // 🌟 스크롤 복원
+  function enableScroll() {
+    $("body").css({
+      overflow: "",
+      position: "",
+    });
+    window.scrollTo(0, scrollY); // 스크롤 원래 위치로 복원
+
+    // 터치 및 휠 이벤트 해제
+    document.removeEventListener("wheel", preventScroll);
+    document.removeEventListener("touchmove", preventScroll);
+  }
+
+  // 🌟 스크롤 차단 이벤트 (기본 동작 막기)
+  function preventScroll(e) {
+    e.preventDefault();
+  }
+
+  // 슬라이드 아이템 클릭 시 풀스크린 모드 진입
   $(".slick-slider").on("click", ".slide-item", function (e) {
-    // 드래그로 이동한 경우 클릭 이벤트 무시
     if (isDragging) {
       e.preventDefault();
       return;
@@ -64,19 +96,27 @@ $(function () {
         .style.setProperty("--bg-img", bgImg);
       $(".fullscreen-video").fadeOut();
     }
-    $(".fullscreen-image").fadeIn();
-    $("body").addClass("remove-scroll");
+
+    $(".fullscreen-image").fadeIn().css("backdrop-filter", "blur(10px)");
+
+    // 🌟 스크롤 차단 적용
+    disableScroll();
   });
 
+  // 풀스크린 닫기
   $(".fullscreen-image").on("click", function () {
     $(this).fadeOut(function () {
-      $("body").removeClass("remove-scroll");
+      // 🌟 스크롤 복원
+      enableScroll();
+
+      // 블러 효과 제거 (최적화)
+      $(".fullscreen-image").css("backdrop-filter", "none");
+
       var $video = $(".fullscreen-video video");
       if ($video.length) {
         var v = $video.get(0);
         v.pause();
         v.currentTime = 0;
-        // 영상 소스 삭제
         $video.attr("src", "");
       }
     });

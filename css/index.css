@@ -913,6 +913,30 @@ footer {
   min-width: 340px;
 }
 
+#footer-bookmark-wrapper {
+  position: absolute;
+  width: fit-content;
+  height: auto;
+  top: -22px;
+  left: 16px;
+}
+
+#footer-bookmark {
+  position: relative;
+}
+
+#footer-bookmark-wrapper p {
+  position: absolute;
+  width: fit-content;
+  height: auto;
+  font-family: "Pretendard", serif;
+  font-size: 12px;
+  font-weight: 500;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #footer-contact-wrapper {
   position: relative;
   padding-inline: 16px;
@@ -987,12 +1011,6 @@ footer {
 
 #footer-copyright p {
   font-size: 12px;
-}
-
-#footer-bookmark {
-  position: absolute;
-  top: -22px;
-  left: 16px;
 }
 
 #footer-chara {
@@ -1793,6 +1811,11 @@ footer {
     width: 100vw;
   }
 
+  #footer-bookmark-wrapper {
+    left: auto;
+    padding-inline: 16px;
+  }
+
   #pc-footer {
     width: 65%;
     margin: 0 auto;
@@ -1800,12 +1823,6 @@ footer {
 
   #footer-contact-wrapper {
     margin-inline: none;
-  }
-  #footer-bookmark-wrapper {
-    position: absolute;
-    width: 65%;
-    height: fit-content;
-    top: 0;
   }
 
   #footer-contact-email p {
@@ -1834,6 +1851,15 @@ footer {
   footer {
     width: 100vw;
     margin-top: 120px;
+  }
+
+  #footer-bookmark-wrapper {
+    left: auto;
+    padding: 0;
+  }
+
+  #footer-bookmark-wrapper p {
+    font-size: 14px;
   }
 
   #footer-contact-email p {
