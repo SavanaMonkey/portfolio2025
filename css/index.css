@@ -1240,7 +1240,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  max-height: 1000vw;
+  max-height: fit-content;
   border-top: 1px solid #fff;
 }
 
